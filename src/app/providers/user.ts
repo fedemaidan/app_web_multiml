@@ -16,7 +16,7 @@ export class User {
 
   socket
 
-  url: string = 'https://abed77da.ngrok.io/api';
+  url: string = 'http://multiml.com/api';
   urlSocket: string = 'https://fab8b305.ngrok.io';
 
   public cuentas: Cuenta[]
