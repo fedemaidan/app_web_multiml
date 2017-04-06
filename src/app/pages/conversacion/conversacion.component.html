@@ -1,0 +1,59 @@
+<div class="list-group">
+	
+		<div class="col-md-2">
+				<img  [src]="this.meli.pregunta.item.thumbnail" class="img-circle" horizontalAlignment="center"/>				
+			</div>
+			<div class="col-md-6" (click)="setPregunta(this.meli.pregunta)">
+				<h3 class="">{{ this.meli.pregunta.item.title }}</h3>
+			</div>
+			
+			<div class="col-md-4" style="text-align: center;">
+				<span class="usuario">{{ this.meli.pregunta.seller_name }}</span>
+				
+				<div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
+				  <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(this.meli.pregunta)">
+				  	<span class="glyphicon glyphicon-comment"></span> {{ this.meli.dameCantidadPreguntasPrevias(this.meli.pregunta) }}
+				  </button>
+				  <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(this.meli.pregunta.item)">
+				  	<span class="glyphicon glyphicon-modal-window"></span>
+				  </button>
+				  <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(this.meli.pregunta.from)">
+				  	<span class="glyphicon glyphicon-user"></span>
+				  </button>
+				</div>
+
+			</div>
+
+		<div *ngFor="let pregunta of this.meli.pregunta.preguntas_previas" class="pregunta col-md-12">
+			<div  [ngClass]="(pregunta.answer == null)?'envoltura col-md-8 mano':'envoltura col-md-8'" (click)="seleccionarPregunta(pregunta.id, pregunta.answer == null )">
+				<div class="col-md-1">
+					<span class="glyphicon glyphicon-comment icono" style="color: #60CE65"></span>
+				</div>
+				<div class="col-md-2">
+					{{dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}
+				</div>
+				<div class="col-md-9">
+					{{ pregunta.text }}
+				</div>
+			</div>
+			
+			<div class="col-md-8 col-md-offset-4 envoltura" *ngIf="pregunta.answer" >
+				<div class="col-md-9">
+					{{ pregunta.answer.text }} 
+				</div>
+				<div class="col-md-2">
+					{{dameFechaArgentina(pregunta.answer.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}
+				</div>
+				<div class="col-md-1">
+					<span class="glyphicon glyphicon-comment icono" style="color: #337AB7"></span>
+				</div>
+			</div>
+			
+			<div class="col-md-8 col-md-offset-4 envoltura"   *ngIf="(this.meli.pregunta.question_id == pregunta.id)" >
+				<textarea rows="8" class="form-control " [(ngModel)]="respuesta"></textarea>
+				<button class="btn btn-primary botonResponder col-md-12" (click)="responder()">Responder</button>
+			</div>
+			
+		</div>
+	
+</div>

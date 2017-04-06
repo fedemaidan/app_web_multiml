@@ -1,0 +1,45 @@
+<app-navegador></app-navegador>
+<div class="list-group">
+
+		<div *ngFor="let pregunta of this.meli.preguntas" class="pregunta col-md-12">
+			
+			<div class="col-md-2" style="text-align: center;">
+				<img  [src]="pregunta.item.thumbnail" class="img-circle"/>
+				<span class="badge">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</span>
+			</div>
+			<div class="col-md-6" (click)="setPregunta(pregunta)">
+				<h3 class="">{{ pregunta.item.title }}</h3>
+				<span class="glyphicon glyphicon-comment icono "></span>
+					{{ pregunta.text }}
+			</div>
+			<div class="col-md-4" style="text-align: center;">
+				<span class="usuario">{{ pregunta.seller_name }}</span>
+				
+				<div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
+				  <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(pregunta)">
+				  	
+				  	<span class="glyphicon glyphicon-comment"></span> 
+					{{ pregunta.cantidad_preguntas_previas}}
+				  	
+				  </button>
+				  <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(pregunta.item)">
+				  	<span class="glyphicon glyphicon-modal-window"></span>
+				  </button>
+				  <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
+				  	<span class="glyphicon glyphicon-user"></span>
+				  </button>
+				</div>
+
+			</div>
+			
+			<div class="col-md-11 col-md-offset-1 respuesta" [hidden]="meli.pregunta != pregunta" >
+				<textarea rows="8" class="form-control " [(ngModel)]="respuesta"></textarea>
+				<button class="btn btn-primary botonResponder" (click)="responder()">Responder</button>
+			</div>
+			
+			
+			
+
+		</div>
+	
+</div>

@@ -1,0 +1,26 @@
+<app-navegador></app-navegador>
+<div class="general">
+	 <table class="table">
+	 	<thead>
+	    	<tr>
+	    		<th>Nickname</th>
+	    		<th>Reputación</th>
+	    		<th>Desactivar de MultiML</th>
+	    	</tr>
+    	</thead>
+    	 <tbody>
+	    	<tr *ngFor="let cuenta of this.user.cuentas">
+	    		<td>{{ cuenta.nickname }}</td>
+	    		<td>Reputacion</td>
+	    		<td>
+	    			<button class="btn btn-danger">
+	    				<span class="glyphicon glyphicon-remove"></span>
+	    				Remover
+	    			</button>
+	    		</td>
+	    	</tr>
+  	</table>
+  	<button class="col-md-12 btn btn-primary">
+  		Registrar nueva cuenta de MercadoLibre
+  	</button>
+</div>

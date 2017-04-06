@@ -1,0 +1,53 @@
+.list-group {
+	margin-top: 105px
+}
+
+.pregunta {
+	width: 100%;
+	padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.usuario {
+
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #4CAF50;
+    border-radius: 10px;
+
+}
+
+.icono {
+	margin-right: 10px;
+	margin-left: 10px;
+    color: #777
+}
+
+.verConversacion {
+	margin:10px;
+}
+
+.botonResponder {
+	width: 100%
+
+}
+
+.respuesta {
+	margin: 30px
+}
+
+
+.acciones {
+	margin: 10px;
+	float: center;
+}
