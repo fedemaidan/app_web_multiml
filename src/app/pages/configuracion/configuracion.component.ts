@@ -41,8 +41,17 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   agregarCuenta() {
-    var enrutador = this.router
-    enrutador.navigate(["/web"])    
+    var accountInfo = { user: this.user._user}
+    window.open(this.meli.logoutML(), "_blank");
+    var self = this
+    setTimeout( () => {
+      self.meli.urlIniML(accountInfo).map(
+              res => res.json()).subscribe(data => {
+                window.open(data.url,"_blank");
+            })
+    }, 2000)
+    
+
     
   }
 

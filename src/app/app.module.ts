@@ -14,6 +14,7 @@ import { PreguntasComponent } from './pages/preguntas/preguntas.component';
 import { ConversacionComponent } from './pages/conversacion/conversacion.component';
 import { ConfiguracionComponent } from './pages/configuracion/configuracion.component';
 import { NavegadorComponent } from './components/navegador/navegador.component';
+import { RegistracionComponent } from './pages/registracion/registracion.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NavegadorComponent } from './components/navegador/navegador.component';
     ConversacionComponent,
     ConfiguracionComponent,
     NavegadorComponent,
+    RegistracionComponent,
 
   ],
   imports: [
@@ -45,6 +47,10 @@ import { NavegadorComponent } from './components/navegador/navegador.component';
       {
         path: 'configuracion',
         component: ConfiguracionComponent
+      },
+      {
+        path: 'registracion',
+        component: RegistracionComponent
       }
     ])
   ],
