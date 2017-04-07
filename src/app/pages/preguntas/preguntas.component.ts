@@ -21,6 +21,9 @@ export class PreguntasComponent implements OnInit {
   }
   
   ngOnInit() {
+    if(!this.user.token)
+      this.router.navigate(["/"])
+
     this.isLoading = true
   	this.meli.actualizarPreguntas({}).map(res => res.json())
       .subscribe(res => {

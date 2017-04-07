@@ -1,3 +1,7 @@
 .general {
 	margin-top: 105px;
 }
+
+.mano {
+	{ cursor: pointer; cursor: hand;}
+}

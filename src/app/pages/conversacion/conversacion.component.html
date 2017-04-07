@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group" *ngIf="this.meli.pregunta">
 	
 		<div class="col-md-2">
 				<img  [src]="this.meli.pregunta.item.thumbnail" class="img-circle" horizontalAlignment="center"/>				
@@ -11,9 +11,9 @@
 				<span class="usuario">{{ this.meli.pregunta.seller_name }}</span>
 				
 				<div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
-				  <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(this.meli.pregunta)">
-				  	<span class="glyphicon glyphicon-comment"></span> {{ this.meli.dameCantidadPreguntasPrevias(this.meli.pregunta) }}
-				  </button>
+				  <a type="button" class="btn btn-default" title="Volver" routerLink="/preguntas">
+				  	<span class="glyphicon glyphicon-menu-left"></span> 
+				  </a>
 				  <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(this.meli.pregunta.item)">
 				  	<span class="glyphicon glyphicon-modal-window"></span>
 				  </button>

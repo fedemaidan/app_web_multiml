@@ -1,10 +1,10 @@
 <div class="register-page">
+	<app-mensaje></app-mensaje>
   <div class="form">
-    <form class="register-form">
-      <input type="text" [(ngModel)]="account.email"  placeholder="Email"/>
+	  <input type="text" [(ngModel)]="account.name"  placeholder="Username"/>
+      <input type="text" [(ngModel)]="account.mail"  placeholder="Email"/>
       <input type="password" [(ngModel)]="account.password"  placeholder="Password"/>
-      <button>Crear usuario</button>
-      <p class="message">¿Ya tienes usuario?<a routerLink="/">Entrar</a></p>
-    </form>
+      <button (click)="registrar()">Crear usuario</button>
+      <p class="message">¿Ya tienes usuario?<a routerLink="/"> Entrar</a></p>
   </div>
 </div>

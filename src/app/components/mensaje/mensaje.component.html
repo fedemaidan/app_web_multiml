@@ -1,0 +1,4 @@
+<div [class]="this.mensajero.tipo" *ngIf="this.mensajero.show">
+    <button type="button" class="close" (click)="this.mensajero.ocultar()" data-dismiss="alert">&times;</button>
+    {{ this.mensajero.mensaje }}
+</div>

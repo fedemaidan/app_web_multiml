@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../providers/user';
+import { Mensajero } from '../../providers/mensajero';
 import { Router } from "@angular/router";
 
 @Component({
@@ -9,13 +10,14 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 	account: {name: string, password: string} = {
-    	name: 'mariano',
-    	password: 'mariano'
+    	name: 'fede',
+    	password: 'fede'
   	};
 
   	constructor(
   		private user: User,
-  		private router: Router
+  		private router: Router,
+  		private mensajero: Mensajero
   		) { }
 
   	ngOnInit() {
@@ -33,11 +35,11 @@ export class LoginComponent implements OnInit {
 		  }
 		  else
 		    {
-		      alert(resp.json().msg)
+		    	this.mensajero.mostrarMensajeError(resp.json().msg)
 		    }
 		}, (err) => {
 		  console.log(err)
-		  alert("Fallo en el servidor")
+		  this.mensajero.mostrarMensajeError("Falló en el servidor")
 		});
 	}
 

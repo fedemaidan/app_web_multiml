@@ -16,7 +16,9 @@ export class ConfiguracionComponent implements OnInit {
               private meli: MercadoLibre,
               private router: Router) {}
   ngOnInit() {
-
+    if(!this.user.token)
+      this.router.navigate(["/"])
+    
   	this.isLoading = true
     this.user.actualizarCuentas({})
     	.map(res => res.json())
@@ -47,6 +49,7 @@ export class ConfiguracionComponent implements OnInit {
     setTimeout( () => {
       self.meli.urlIniML(accountInfo).map(
               res => res.json()).subscribe(data => {
+                console.log(data.url)
                 window.open(data.url,"_blank");
             })
     }, 2000)
@@ -64,6 +67,11 @@ export class ConfiguracionComponent implements OnInit {
 
   irAPreguntas() {
     this.router.navigate(["/preguntas"])
+  }
+
+  verUsuario(id) {
+    var url = "http://www.mercadolibre.com.ar/jm/profile?id="+id;
+    window.open(url);
   }
 
   logout() {

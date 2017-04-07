@@ -8,6 +8,7 @@ import { RouterModule }   from '@angular/router';
 import { AppComponent } from './app.component';
 import { User } from "./providers/user";
 import { Api } from "./providers/api";
+import { Mensajero } from "./providers/mensajero";
 import { MercadoLibre } from "./providers/mercadolibre";
 import { LoginComponent } from './pages/login/login.component';
 import { PreguntasComponent } from './pages/preguntas/preguntas.component';
@@ -15,6 +16,7 @@ import { ConversacionComponent } from './pages/conversacion/conversacion.compone
 import { ConfiguracionComponent } from './pages/configuracion/configuracion.component';
 import { NavegadorComponent } from './components/navegador/navegador.component';
 import { RegistracionComponent } from './pages/registracion/registracion.component';
+import { MensajeComponent } from './components/mensaje/mensaje.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { RegistracionComponent } from './pages/registracion/registracion.compone
     ConfiguracionComponent,
     NavegadorComponent,
     RegistracionComponent,
+    MensajeComponent,
 
   ],
   imports: [
@@ -54,7 +57,7 @@ import { RegistracionComponent } from './pages/registracion/registracion.compone
       }
     ])
   ],
-  providers: [Api, User, MercadoLibre],
+  providers: [Api, User, MercadoLibre, Mensajero],
   bootstrap: [AppComponent ]
 })
 export class AppModule { }

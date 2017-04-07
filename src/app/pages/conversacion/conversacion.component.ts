@@ -16,19 +16,25 @@ respuesta: string
 
   constructor(private user: User,
               private meli: MercadoLibre,
-              private router: Router) {}
+              private router: Router) {
+  }
 
   ngOnInit() {
-    this.usuarioPregunta = "USUARIO"
-  	this.respuesta = ""
-  	this.isLoading = false
+    if(!this.user.token)
+      this.router.navigate(["/"])
+    
+    if (this.meli.pregunta) {
+      this.usuarioPregunta = "USUARIO"
+      this.respuesta = ""
+      this.isLoading = false
 
-    this.meli.dameNombreUsuario(this.meli.pregunta.from).map(resp => resp.json())
-    .subscribe((respuesta) => {
-       this.usuarioPregunta = respuesta.nickname
-    }, (err) => {
-        console.log(err)
-    }); 
+      this.meli.dameNombreUsuario(this.meli.pregunta.from).map(resp => resp.json())
+      .subscribe((respuesta) => {
+         this.usuarioPregunta = respuesta.nickname
+      }, (err) => {
+          console.log(err)
+      });
+    }
   }
 
   responder() {

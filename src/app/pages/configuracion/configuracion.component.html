@@ -1,19 +1,33 @@
 <app-navegador></app-navegador>
 <div class="general">
+	<app-mensaje></app-mensaje>
 	 <table class="table">
 	 	<thead>
 	    	<tr>
 	    		<th>Nickname</th>
-	    		<th>Reputación</th>
+	    		<th>Positivas</th>
+	    		<th>Neutrales</th>
+	    		<th>Negativas</th>
 	    		<th>Desactivar de MultiML</th>
 	    	</tr>
     	</thead>
     	 <tbody>
 	    	<tr *ngFor="let cuenta of this.user.cuentas">
-	    		<td>{{ cuenta.nickname }}</td>
-	    		<td>Reputacion</td>
+	    		<td (click)="verUsuario(cuenta.id_ml)" class="mano">
+	    			
+					<span role="button" class="glyphicon glyphicon-user mano" > {{ cuenta.nickname }}</span>
+
+					
+	    		</td>
+
+	    		<td>{{ cuenta.reputation.transactions.ratings.positive }}</td>
+	    		<td>{{ cuenta.reputation.transactions.ratings.neutral }}</td>
+	    		<td>{{ cuenta.reputation.transactions.ratings.negative }}</td>
+	    		<!-- <td>0</td>
+	    		<td>0</td>
+	    		<td>1</td> -->
 	    		<td>
-	    			<button class="btn btn-danger">
+	    			<button class="btn btn-danger" (click)="removerCuenta(cuenta)">
 	    				<span class="glyphicon glyphicon-remove"></span>
 	    				Remover
 	    			</button>
