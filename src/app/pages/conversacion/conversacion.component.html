@@ -50,7 +50,7 @@
 			</div>
 			
 			<div class="col-md-8 col-md-offset-4 envoltura"   *ngIf="(this.meli.pregunta.question_id == pregunta.id)" >
-				<textarea rows="8" class="form-control " [(ngModel)]="respuesta"></textarea>
+				<textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea>
 				<button class="btn btn-primary botonResponder col-md-12" (click)="responder()">Responder</button>
 			</div>
 			

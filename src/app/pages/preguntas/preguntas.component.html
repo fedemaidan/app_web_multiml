@@ -33,8 +33,8 @@
 			</div>
 			
 			<div class="col-md-11 col-md-offset-1 respuesta" [hidden]="meli.pregunta != pregunta" >
-				<textarea rows="8" class="form-control " [(ngModel)]="respuesta"></textarea>
-				<button class="btn btn-primary botonResponder" (click)="responder()">Responder</button>
+				<textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea >
+				<button class="btn btn-primary botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
 			</div>
 			
 			

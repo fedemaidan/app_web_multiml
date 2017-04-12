@@ -19,6 +19,10 @@ respuesta: string
               private router: Router) {
   }
 
+  prueba() {
+    console.log("aca prueba")
+  }
+
   ngOnInit() {
     if(!this.user.token)
       this.router.navigate(["/"])
@@ -45,6 +49,7 @@ respuesta: string
                                   })
     .map(resp => resp.json())
     .subscribe((respuesta) => {
+      console.log("pase")
        this.respuesta = ""
        this.meli.removerPregunta()
        this.router.navigate(["/preguntas"])

@@ -58,7 +58,7 @@ export class MercadoLibre {
       .map(res => res.json())
       .subscribe(res => {
         if(res.success == true) {
-          this.preguntas.splice(0,1)
+          this.removerPregunta()
         } else {
         }
       }, err => {

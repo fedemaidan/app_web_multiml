@@ -64,8 +64,6 @@ export class PreguntasComponent implements OnInit {
 	    .map(resp => resp.json())
 	    .subscribe((respuesta) => {
 	       this.respuesta = ""
-	       this.meli.removerPregunta()
-	       this.router.navigate(["/preguntas"])
 	    }, (err) => {
       		console.log(err)
     }); 
