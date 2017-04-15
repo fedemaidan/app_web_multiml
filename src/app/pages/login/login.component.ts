@@ -11,7 +11,8 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
 	account: {name: string, password: string} = {
     	name: 'fede',
-    	password: 'fede'
+    	password: 'fede',
+    	response_captcha: null
   	};
 
   	constructor(
@@ -22,7 +23,6 @@ export class LoginComponent implements OnInit {
 
   	ngOnInit() {
   		if(this.user._user) {
-  			console.log("ya estoy gato")
 	      this.router.navigate(["/preguntas"])
 	    }
   	}
@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   	submit() {
 		this.user.login(this.account).subscribe((resp) => {
 		  if (resp.json().success == true){
-		  	console.log("entre")
 		    this.router.navigate(["/preguntas"])
 		  }
 		  else

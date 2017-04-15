@@ -54,7 +54,7 @@ export class User {
 
   login(accountInfo: any) {
     accountInfo = this.cargarHeadersAutorizations(accountInfo)
-    let seq = this.api.post(this.url, 'authenticate', accountInfo).share();
+    let seq = this.api.post(this.url, 'authenticate_web', accountInfo).share();
     
     seq
       .map(res => res.json())
