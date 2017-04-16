@@ -1,9 +1,10 @@
-<div class="register-page">
+<div class="recuperar-page">
 	<app-mensaje></app-mensaje>
   <div class="form">
 	  <input type="text" [(ngModel)]="account.name"  placeholder="Username"/>
       <input type="text" [(ngModel)]="account.mail"  placeholder="Email"/>
       <input type="password" [(ngModel)]="account.password"  placeholder="Password"/>
+      <re-captcha site_key="6Lf2rBwUAAAAAAo3n58ifSSWOq1uYFrqne2JEm2m"></re-captcha>
       <button (click)="registrar()">Crear usuario</button>
       <p class="message">¿Ya tienes usuario?<a routerLink="/"> Entrar</a></p>
   </div>

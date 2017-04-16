@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ConfiguracionComponent } from './pages/configuracion/configuracion.comp
 import { NavegadorComponent } from './components/navegador/navegador.component';
 import { RegistracionComponent } from './pages/registracion/registracion.component';
 import { MensajeComponent } from './components/mensaje/mensaje.component';
+import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { MensajeComponent } from './components/mensaje/mensaje.component';
     NavegadorComponent,
     RegistracionComponent,
     MensajeComponent,
+    RecuperarContrasenaComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReCaptchaModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -54,6 +58,10 @@ import { MensajeComponent } from './components/mensaje/mensaje.component';
       {
         path: 'registracion',
         component: RegistracionComponent
+      },
+      {
+        path: 'recuperar_contrasena',
+        component: RecuperarContrasenaComponent
       }
     ])
   ],

@@ -4,9 +4,10 @@
     
       <input type="text"  [(ngModel)]="account.name" placeholder="Username"/>
       <input type="password"  [(ngModel)]="account.password" placeholder="Password"/>
-      <div class="g-recaptcha" [(ngModel)]="account.response_captcha" data-sitekey="6Lf2rBwUAAAAAAo3n58ifSSWOq1uYFrqne2JEm2m"></div>
+      <re-captcha site_key="6Lf2rBwUAAAAAAo3n58ifSSWOq1uYFrqne2JEm2m"></re-captcha>
       <button (click)="submit()">login</button>
       <p class="message">¿No estas registrado? <a routerLink="/registracion">Crea una cuenta</a></p>
+      <p class="message">¿No recuerdas tu contraseña? <a routerLink="/recuperar_contrasena">Recuperar contraseña</a></p>
     
   </div>
 </div>

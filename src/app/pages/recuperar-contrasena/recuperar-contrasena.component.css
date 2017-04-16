@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.register-page {
+.recover-page {
   width: 390px;
   padding: 8% 0 0;
   margin: auto;
@@ -15,6 +15,7 @@
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -39,7 +40,14 @@
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  margin-top: 10px;
 }
+
+.volver {
+  background-color: #F2F2F2 !important;
+  color: black !important;
+}
+
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }

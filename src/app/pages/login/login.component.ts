@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../providers/user';
 import { Mensajero } from '../../providers/mensajero';
 import { Router } from "@angular/router";
+import { ViewChild } from '@angular/core';
+import { ReCaptchaComponent } from 'angular2-recaptcha';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,9 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	account: {name: string, password: string} = {
+	@ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
+
+	account: {name: string, password: string, response_captcha: String} = {
     	name: 'fede',
     	password: 'fede',
     	response_captcha: null
@@ -23,21 +27,24 @@ export class LoginComponent implements OnInit {
 
   	ngOnInit() {
   		if(this.user._user) {
-	      this.router.navigate(["/preguntas"])
+	      	this.router.navigate(["/preguntas"])
 	    }
   	}
 
   	submit() {
+  		this.account.response_captcha = this.captcha.getResponse();
 		this.user.login(this.account).subscribe((resp) => {
 		  if (resp.json().success == true){
+		  	this.mensajero.ocultar()
 		    this.router.navigate(["/preguntas"])
 		  }
 		  else
 		    {
 		    	this.mensajero.mostrarMensajeError(resp.json().msg)
+		    	this.captcha.reset();
 		    }
 		}, (err) => {
-		  console.log(err)
+		  this.captcha.reset();
 		  this.mensajero.mostrarMensajeError("Falló en el servidor")
 		});
 	}

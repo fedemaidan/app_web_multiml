@@ -71,6 +71,12 @@ export class User {
     return seq;
   }
 
+  recuperarContrasena(accountInfo: any) {
+    accountInfo = this.cargarHeadersAutorizations(accountInfo)
+    let seq = this.api.post(this.url, 'recuperarContrasena', accountInfo).share();
+    return seq;
+  }
+
   signup(accountInfo: any) {
     accountInfo = this.cargarHeadersAutorizations(accountInfo)
     let seq = this.api.post(this.url,'signup', accountInfo).share();
@@ -129,7 +135,8 @@ export class User {
   }
 
   logout() {
-    
+    this._user = null
+    this.token = null
   }
 
   cargarHeadersAutorizations(options) {

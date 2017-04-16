@@ -3,18 +3,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Mensajero {
 	
-	mensaje: string = ""
-  tipo: string = "alert alert-info"
-	show: boolean = false	
+	private mensaje: string = ""
+  private tipo: string = "alert alert-info"
+	private show: boolean = false	
   constructor() {
   }
   
-  mostrarMensaje(mensaje, tipo = "alert alert-info") {
-  	this.mensaje = mensaje
-  	this.show = true
-    this.tipo = tipo
-  }
-
   mostrarMensajeInfo(mensaje) {
     this.mostrarMensaje(mensaje, "alert alert-info")
   }
@@ -26,7 +20,16 @@ export class Mensajero {
   mostrarMensajeError(mensaje) {
     this.mostrarMensaje(mensaje, "alert alert-danger")
   }
+
   ocultar() {
-  	this.show = false
+    this.mensaje = ""
+    this.show = false
   }
+
+  private mostrarMensaje(mensaje, tipo = "alert alert-info") {
+    this.mensaje = mensaje
+    this.show = true
+    this.tipo = tipo
+  }
+
 }

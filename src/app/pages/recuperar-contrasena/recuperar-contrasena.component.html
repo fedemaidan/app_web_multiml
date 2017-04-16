@@ -1,0 +1,15 @@
+<div class="recover-page">
+	<app-mensaje></app-mensaje>
+  <div class="form" *ngIf="!estadoEnviado">
+	  <input type="text" [(ngModel)]="account.name"  placeholder="Username"/>
+      <input type="password" [(ngModel)]="account.password"  placeholder="Nueva password"/>
+      <re-captcha site_key="6Lf2rBwUAAAAAAo3n58ifSSWOq1uYFrqne2JEm2m"></re-captcha>
+      <button (click)="recuperarContrasena()">Recuperar contraseña</button>
+      <button routerLink="/" class="volver"> Volver  </button>
+  </div>
+
+  <div class="form" *ngIf="estadoEnviado">
+	  <p> En los proximos minutos recibira un mail para completar el proceso de recuperación de la constraseña </p>
+	  <button routerLink="/"> Entendido </button>
+  </div>
+</div>
