@@ -44,18 +44,15 @@ export class ConfiguracionComponent implements OnInit {
 
   agregarCuenta() {
     var accountInfo = { user: this.user._user}
-    window.open(this.meli.logoutML(), "_blank");
+    var log = window.open(this.meli.logoutML(), "_blank");
+    
     var self = this
     setTimeout( () => {
       self.meli.urlIniML(accountInfo).map(
               res => res.json()).subscribe(data => {
-                console.log(data.url)
                 window.open(data.url,"_blank");
             })
-    }, 2000)
-    
-
-    
+    }, 4000)
   }
 
   removerCuenta(cuenta) {
@@ -74,9 +71,5 @@ export class ConfiguracionComponent implements OnInit {
     window.open(url);
   }
 
-  logout() {
-    this.user.logout()
-    this.router.navigate(["/"])
-  }
 
 }

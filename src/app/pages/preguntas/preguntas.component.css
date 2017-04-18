@@ -11,26 +11,24 @@
 }
 
 .usuario {
-
     display: inline-block;
     min-width: 10px;
     padding: 3px 7px;
     font-size: 12px;
     font-weight: 700;
     line-height: 1;
-    color: #fff;
+    color: black;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: #4CAF50;
+    background-color: #FFBB00;
     border-radius: 10px;
-
 }
 
 .icono {
 	margin-right: 10px;
 	margin-left: 10px;
-    color: #777
+    color: black;
 }
 
 .verConversacion {
@@ -50,4 +48,12 @@
 .acciones {
 	margin: 10px;
 	float: center;
+}
+
+.mano {
+    {cursor: pointer; cursor: hand;}
+}
+
+.fecha {
+    color: #9F9F9F;
 }

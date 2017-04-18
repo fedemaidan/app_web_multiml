@@ -30,6 +30,10 @@ body {
 	color: white;
 }
 .navbar-inverse {
-     background-color: #4CAF50; 
-     border-color: #4CAF50; 
+     background-color: #FFBB00; 
+     border-color: #FFBB00; 
+}
+
+.mano {
+    {cursor: pointer; cursor: hand;}
 }

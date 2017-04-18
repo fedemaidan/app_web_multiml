@@ -4,7 +4,7 @@ import { Api } from './api';
 import { MercadoLibre } from './mercadolibre';
 import { Pregunta } from '../model/pregunta';
 import { Cuenta } from '../model/cuenta';
-// import * as SocketIO from 'socket.io-client';
+import * as SocketIO from 'socket.io-client';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
@@ -14,18 +14,21 @@ export class User {
   _user: any
   token: string
 
-  socket
+  socket: any
 
   url: string = 'http://multiml.com/api';
-  urlSocket: string = 'https://fab8b305.ngrok.io';
+  urlSocket: string = 'http://multiml.com/socket';
 
   public cuentas: Cuenta[]
 
   constructor(public http: Http, 
               public api: Api
               ) {
-    // this.socket = new SocketIO(this.urlSocket, 3000);
-    // this.socket.connect()
+
+    if (localStorage.getItem('_user')) {
+      this.cargarUsuario(localStorage.getItem('_user'), localStorage.getItem('token'))
+    }
+    
     // this.cargarUsuario() 
   }
 
@@ -45,6 +48,15 @@ export class User {
     this._user = user
     this.token = token
     this.actualizarCuentas({})
+
+    localStorage.setItem('_user', this._user);
+    localStorage.setItem('token', this.token);
+
+    console.log("socket on")
+    this.socket = SocketIO.connect(this.urlSocket);
+
+    this.socket.emit("hola", "pedro")
+
     // helper.setupNotifications(utils.ad.getApplicationContext(), self._user, self.socket);
   }
 
@@ -137,6 +149,8 @@ export class User {
   logout() {
     this._user = null
     this.token = null
+    localStorage.removeItem('_user')
+    localStorage.removeItem('token')
   }
 
   cargarHeadersAutorizations(options) {
@@ -152,4 +166,12 @@ export class User {
 
     return options
   } 
+
+  cantidadDeCuentas() {
+    if (this.cuentas) {
+      return this.cuentas.length
+    }
+
+    return null
+  }
 }

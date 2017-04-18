@@ -1,5 +1,5 @@
 .mano {
-	{ cursor: pointer; }
+    {cursor: pointer; cursor: hand;}
 }
 
 .envoltura {
@@ -18,10 +18,11 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 1;
-    color: #fff;
+    color: black;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: #4CAF50;
+    background-color: #FFBB00;
     border-radius: 10px;
 }
+

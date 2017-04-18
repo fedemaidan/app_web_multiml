@@ -24,6 +24,12 @@ export class PreguntasComponent implements OnInit {
     if(!this.user.token)
       this.router.navigate(["/"])
 
+
+    if (this.user.cantidadDeCuentas() == 0) {
+      this.router.navigate(["/configuracion"])
+    }
+
+
     this.isLoading = true
   	this.meli.actualizarPreguntas({}).map(res => res.json())
       .subscribe(res => {

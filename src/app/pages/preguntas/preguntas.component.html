@@ -1,13 +1,16 @@
 <app-navegador></app-navegador>
 <div class="list-group">
 		<app-mensaje></app-mensaje>
+		<p *ngIf="this.meli.cantidadPreguntas == 0">
+			No hay preguntas cargadas
+		</p>
 		<div *ngFor="let pregunta of this.meli.preguntas" class="pregunta col-md-12">
 			
 			<div class="col-md-2" style="text-align: center;">
 				<img  [src]="pregunta.item.thumbnail" class="img-circle"/>
-				<span class="badge">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</span>
+				<p class="fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
 			</div>
-			<div class="col-md-6" (click)="setPregunta(pregunta)">
+			<div class="col-md-6  mano" (click)="setPregunta(pregunta)">
 				<h3 class="">{{ pregunta.item.title }}</h3>
 				<span class="glyphicon glyphicon-comment icono "></span>
 					{{ pregunta.text }}

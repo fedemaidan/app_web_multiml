@@ -12,6 +12,7 @@ export class MercadoLibre {
   urlML = "https://api.mercadolibre.com"
   preguntas: Pregunta[]
   pregunta: Pregunta
+  cantidadPreguntas = null
 
   constructor(public http: Http
   	, public api: Api
@@ -60,6 +61,26 @@ export class MercadoLibre {
         if(res.success == true) {
           this.removerPregunta()
         } else {
+        }
+      }, err => {
+        console.error('ERROR', err);
+      });
+
+    return seq;
+  }
+
+  sincronizarPreguntas( body: any) {
+    var headers = this.user.cargarHeadersAutorizations({})
+
+    let seq = this.api.post(this.user.getApi(),'sincronizarNuevamentePreguntas', body, headers).share();
+
+    seq
+      .map(res => res.json())
+      .subscribe(res => {
+        if(res.success == true) {
+          this.actualizarPreguntas({})
+        } else {
+          console.log(res)
         }
       }, err => {
         console.error('ERROR', err);
@@ -161,13 +182,17 @@ export class MercadoLibre {
         if(res.success == true) {
 
           this.preguntas = <Pregunta[]>res.data
-          if (this.preguntas)
+          if (this.preguntas) {
             this.preguntas.forEach( (pregunta) => {
               this.actualizarConveracionCon(pregunta)
               pregunta.seller_name = this.user.dameNickname(pregunta.seller_id)
-            })
-          
 
+            })
+            this.cantidadPreguntas = this.preguntas.length
+          }
+          
+          
+         
           
         } else {
           console.error('ERROR ACTUALIZANDO PREGUNTAS', res);
