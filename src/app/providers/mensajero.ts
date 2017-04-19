@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from './user';
 
 @Injectable()
 export class Mensajero {
@@ -6,7 +7,15 @@ export class Mensajero {
 	private mensaje: string = ""
   private tipo: string = "alert alert-info"
 	private show: boolean = false	
-  constructor() {
+  
+  constructor(private user: User) {
+      
+      this.user.socket.on('error', (mensaje) => {
+          this.mostrarMensajeError(mensaje)
+      })
+      this.user.socket.on('exito', (mensaje) => {
+          this.mostrarMensajeExito(mensaje)
+      })
   }
   
   mostrarMensajeInfo(mensaje) {

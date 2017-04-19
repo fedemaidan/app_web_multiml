@@ -33,3 +33,18 @@ body {
      background-color: #FFBB00; 
      border-color: #FFBB00; 
 }
+
+.preguntas {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: black;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #FFBB00;
+    border-radius: 10px;
+}

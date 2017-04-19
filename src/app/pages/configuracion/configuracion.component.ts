@@ -24,22 +24,7 @@ export class ConfiguracionComponent implements OnInit {
     	.map(res => res.json())
 	    .subscribe(res => {
 	        this.isLoading = false
-	      });
-
-     // this.user.socket.on('errorNuevaCuenta', (mensaje) => {
-     //           dialogs.confirm({
-     //          title: "Error agregando cuenta",
-     //          message: "Ocurrio el siguiente error al intentar registrar la cuenta: " + mensaje,
-     //          okButtonText: "Volver a intentar",
-     //          cancelButtonText: "Cancelar",
-     //      }).then(function (result) {
-     //          console.log(result)
-     //          if (result) {
-     //            this.agregarCuenta()
-     //          }
-     //      });
-     //   })
-      
+	      }); 
   }
 
   agregarCuenta() {

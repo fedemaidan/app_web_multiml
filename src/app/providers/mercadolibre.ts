@@ -13,6 +13,7 @@ export class MercadoLibre {
   preguntas: Pregunta[]
   pregunta: Pregunta
   cantidadPreguntas = null
+  socketOn = false
 
   constructor(public http: Http
   	, public api: Api
@@ -165,12 +166,18 @@ export class MercadoLibre {
     this.preguntas.splice(index, 1);
    }
 
-   cargarNuevaPregunta(resource) {
-     this.actualizarPreguntas({})
-   }
+   // cargarNuevaPregunta(resource) {
+   //   this.actualizarPreguntas({})
+   // }
 
    actualizarPreguntas(accountInfo: any) {
     
+    if (!this.socketOn) {
+        this.user.socket.on('actualizar', (mensaje) => {
+          this.actualizarPreguntas({})
+      })
+    }
+
     accountInfo = this.user.cargarHeadersAutorizations(accountInfo)
     
     let seq = this.api.get(this.user.getApi(),'preguntas',{},  accountInfo).share();

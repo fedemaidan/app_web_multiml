@@ -17,7 +17,7 @@ export class User {
   socket: any
 
   url: string = 'http://multiml.com/api';
-  urlSocket: string = 'http://multiml.com/socket';
+  urlSocket: string = 'http://138.197.68.195:3000/';
 
   public cuentas: Cuenta[]
 
@@ -27,9 +27,10 @@ export class User {
 
     if (localStorage.getItem('_user')) {
       this.cargarUsuario(localStorage.getItem('_user'), localStorage.getItem('token'))
+
+
     }
     
-    // this.cargarUsuario() 
   }
 
   dameNickname(id) {
@@ -52,12 +53,12 @@ export class User {
     localStorage.setItem('_user', this._user);
     localStorage.setItem('token', this.token);
 
-    console.log("socket on")
-    this.socket = SocketIO.connect(this.urlSocket);
+    this.socket = SocketIO(this.urlSocket).connect();
+    this.socket.emit("hola", this._user)
 
-    this.socket.emit("hola", "pedro")
-
-    // helper.setupNotifications(utils.ad.getApplicationContext(), self._user, self.socket);
+    this.socket.on('actualizar', (mensaje) => {
+        this.actualizarCuentas({})
+    })
   }
 
   getApi() {
