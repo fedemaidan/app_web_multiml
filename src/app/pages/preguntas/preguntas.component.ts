@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'app-preguntas',
   templateUrl: './preguntas.component.html',
-  styleUrls: ['./preguntas.component.css']
+  styleUrls: ['./preguntas.component.css'],
 })
 export class PreguntasComponent implements OnInit {
 

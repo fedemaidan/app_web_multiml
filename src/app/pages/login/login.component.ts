@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
 		this.user.login(this.account).subscribe((resp) => {
 		  if (resp.json().success == true){
 		  	this.mensajero.ocultar()
+		  	this.mensajero.configurarMensajeSocket()
 		    this.router.navigate(["/preguntas"])
 		  }
 		  else

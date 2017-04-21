@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 
-
 import { AppComponent } from './app.component';
 import { User } from "./providers/user";
 import { Api } from "./providers/api";
@@ -63,7 +62,9 @@ import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recup
         path: 'recuperar_contrasena',
         component: RecuperarContrasenaComponent
       }
-    ])
+    ], { 
+      useHash: true
+    })
   ],
   providers: [Api, User, MercadoLibre, Mensajero],
   bootstrap: [AppComponent ]

@@ -9,15 +9,20 @@ export class Mensajero {
 	private show: boolean = false	
   
   constructor(private user: User) {
-      
-      this.user.socket.on('error', (mensaje) => {
-          this.mostrarMensajeError(mensaje)
-      })
-      this.user.socket.on('exito', (mensaje) => {
-          this.mostrarMensajeExito(mensaje)
-      })
+      if (this.user.socket) {
+        this.configurarMensajeSocket()
+      }
   }
   
+
+  configurarMensajeSocket() {
+        this.user.socket.on('error', (mensaje) => {
+            this.mostrarMensajeError(mensaje)
+        })
+        this.user.socket.on('exito', (mensaje) => {
+            this.mostrarMensajeExito(mensaje)
+        })
+  }
   mostrarMensajeInfo(mensaje) {
     this.mostrarMensaje(mensaje, "alert alert-info")
   }
