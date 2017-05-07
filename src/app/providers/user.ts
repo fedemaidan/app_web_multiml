@@ -27,8 +27,6 @@ export class User {
 
     if (localStorage.getItem('_user')) {
       this.cargarUsuario(localStorage.getItem('_user'), localStorage.getItem('token'))
-
-
     }
     
   }

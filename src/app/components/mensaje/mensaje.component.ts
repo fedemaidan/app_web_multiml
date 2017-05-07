@@ -8,7 +8,7 @@ import { Mensajero } from '../../providers/mensajero';
 })
 export class MensajeComponent implements OnInit {
 
-  constructor( private mensajero: Mensajero) { }
+  constructor( public mensajero: Mensajero) { }
   
   ngOnInit() {
   }

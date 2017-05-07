@@ -35,7 +35,7 @@
 
 			</div>
 			
-			<div class="col-md-11 col-md-offset-1 respuesta" [hidden]="meli.pregunta != pregunta" >
+			<div class="col-md-11 col-md-offset-1 respuesta" [@preguntaState]="meli.pregunta != pregunta ? 'inactive' : 'active'"  >
 				<textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea >
 				<button class="btn btn-primary botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
 			</div>

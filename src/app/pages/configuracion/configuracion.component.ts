@@ -12,8 +12,8 @@ export class ConfiguracionComponent implements OnInit {
 
   isLoading: boolean
   url
-  constructor(private user: User,
-              private meli: MercadoLibre,
+  constructor(public user: User,
+              public meli: MercadoLibre,
               private router: Router) {}
   ngOnInit() {
     if(!this.user.token)

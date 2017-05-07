@@ -2,11 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { MercadoLibre } from '../../providers/mercadolibre';
 import { User } from '../../providers/user';
 import { Router } from "@angular/router";
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-conversacion',
   templateUrl: './conversacion.component.html',
-  styleUrls: ['./conversacion.component.css']
+  styleUrls: ['./conversacion.component.css'],
+  animations: [
+    trigger('preguntaState', [
+      state('inactive', style({
+        height: '0',
+        transform: 'scale(0)'
+      })),
+      state('active',   style({
+        transform: 'scale(1)'
+      })),
+      transition('inactive => active', animate('200ms ease-in')),
+      transition('active => inactive', animate('200ms ease-out'))
+    ])
+  ]
 })
 export class ConversacionComponent implements OnInit {
 
@@ -14,13 +28,9 @@ respuesta: string
   isLoading: boolean
   usuarioPregunta: string
 
-  constructor(private user: User,
-              private meli: MercadoLibre,
+  constructor(public user: User,
+              public meli: MercadoLibre,
               private router: Router) {
-  }
-
-  prueba() {
-    console.log("aca prueba")
   }
 
   ngOnInit() {
@@ -49,7 +59,6 @@ respuesta: string
                                   })
     .map(resp => resp.json())
     .subscribe((respuesta) => {
-      console.log("pase")
        this.respuesta = ""
        this.meli.removerPregunta()
        this.router.navigate(["/preguntas"])
@@ -67,5 +76,15 @@ respuesta: string
     var date = new Date(fecha)
     date.setHours(date.getHours() + 2)
     return date
+  }
+
+  verPublicacion(item) {
+    var url = item.permalink;
+    window.open(url);
+  }
+
+  verUsuario(from) {
+    var url = "http://www.mercadolibre.com.ar/jm/profile?id="+from.id;
+    window.open(url);
   }
 }

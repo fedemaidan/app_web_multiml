@@ -3,19 +3,33 @@ import { MercadoLibre } from '../../providers/mercadolibre';
 import { User } from '../../providers/user';
 import { Pregunta } from '../../model/pregunta';
 import { Router } from "@angular/router";
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-preguntas',
   templateUrl: './preguntas.component.html',
   styleUrls: ['./preguntas.component.css'],
+  animations: [
+    trigger('preguntaState', [
+      state('inactive', style({
+        height: '0',
+        transform: 'scale(0)'
+      })),
+      state('active',   style({
+        transform: 'scale(1)'
+      })),
+      transition('inactive => active', animate('200ms ease-in')),
+      transition('active => inactive', animate('200ms ease-out'))
+    ])
+  ]
 })
 export class PreguntasComponent implements OnInit {
 
   isLoading: boolean = false
   respuesta: string = ""
 
-  constructor(private meli: MercadoLibre,
-              private user: User,
+  constructor(public meli: MercadoLibre,
+              public user: User,
               private router: Router) {
 
   }
@@ -50,7 +64,7 @@ export class PreguntasComponent implements OnInit {
   verUsuario(from) {
   	var url = "http://www.mercadolibre.com.ar/jm/profile?id="+from.id;
   	window.open(url);
-  }
+  }  
   verConversacion(pregunta) {
     this.meli.setPregunta(pregunta)
     this.router.navigate(["/conversacion"])
@@ -61,7 +75,6 @@ export class PreguntasComponent implements OnInit {
   }
 
   responder() {
-  	console.log(this.respuesta)
   	this.meli.responderPregunta( {
                                     user_id_ml: this.meli.pregunta.seller_id, 
                                     question_id: this.meli.pregunta.question_id, 

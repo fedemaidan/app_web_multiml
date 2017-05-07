@@ -6,14 +6,13 @@ export class Mensajero {
 	
 	private mensaje: string = ""
   private tipo: string = "alert alert-info"
-	private show: boolean = false	
+	public show: boolean = false	
   
   constructor(private user: User) {
       if (this.user.socket) {
         this.configurarMensajeSocket()
       }
   }
-  
 
   configurarMensajeSocket() {
         this.user.socket.on('error', (mensaje) => {

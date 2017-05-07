@@ -8,8 +8,8 @@ import { MercadoLibre } from '../../providers/mercadolibre';
 })
 export class NavegadorComponent implements OnInit {
 
-  constructor(private user: User,
-            private meli: MercadoLibre
+  constructor(public user: User,
+            public meli: MercadoLibre
   	) { }
 
   ngOnInit() {
