@@ -29,7 +29,7 @@ export class MercadoLibre {
   }
 
   logoutML() {
-      return "https://www.mercadolibre.com/jms/mla/lgz/logout";
+      return "http://www.mercadolibre.com/jms/mla/lgz/logout";
   }
 
   removerCuentaML(body: any) {

@@ -29,15 +29,12 @@ export class ConfiguracionComponent implements OnInit {
 
   agregarCuenta() {
     var accountInfo = { user: this.user._user}
-    var log = window.open(this.meli.logoutML(), "_blank");
+
+    this.meli.urlIniML(accountInfo).map(
+            res => res.json()).subscribe(data => {
+              window.open(data.url,"_blank");
+          })
     
-    var self = this
-    setTimeout( () => {
-      self.meli.urlIniML(accountInfo).map(
-              res => res.json()).subscribe(data => {
-                window.open(data.url,"_blank");
-            })
-    }, 4000)
   }
 
   removerCuenta(cuenta) {
