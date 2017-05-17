@@ -10,12 +10,12 @@
 				<img  [src]="pregunta.item.thumbnail" class="img-circle"/>
 				<p class="fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
 			</div>
-			<div class="col-md-6  mano" (click)="setPregunta(pregunta)">
+			<div class="col-md-8  mano" (click)="setPregunta(pregunta)">
 				<h3 class="">{{ pregunta.item.title }}</h3>
 				<span class="glyphicon glyphicon-comment icono "></span>
 					{{ pregunta.text }}
 			</div>
-			<div class="col-md-4" style="text-align: center;">
+			<div class="col-md-2" style="text-align: center;">
 				<span class="usuario">{{ pregunta.seller_name }}</span>
 				
 				<div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">

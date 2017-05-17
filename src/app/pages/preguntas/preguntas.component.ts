@@ -13,9 +13,11 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     trigger('preguntaState', [
       state('inactive', style({
         height: '0',
+        margin: '1',
         transform: 'scale(0)'
       })),
       state('active',   style({
+        margin: '30',
         transform: 'scale(1)'
       })),
       transition('inactive => active', animate('200ms ease-in')),
