@@ -15,7 +15,7 @@ export class Mensajero {
   }
 
   configurarMensajeSocket() {
-        this.user.socket.on('error', (mensaje) => {
+        this.user.socket.on('error_mensaje', (mensaje) => {
             this.mostrarMensajeError(mensaje)
         })
         this.user.socket.on('exito', (mensaje) => {

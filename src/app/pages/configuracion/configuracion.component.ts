@@ -11,11 +11,19 @@ import { Router } from "@angular/router";
 export class ConfiguracionComponent implements OnInit {
 
   isLoading: boolean
-  url
+  url = null
+
   constructor(public user: User,
               public meli: MercadoLibre,
               private router: Router) {}
   ngOnInit() {
+    var accountInfo = { user: this.user._user}
+
+    this.meli.urlIniML(accountInfo).map(
+            res => res.json()).subscribe(data => {
+            this.url = data.url
+          });
+
     if(!this.user.token)
       this.router.navigate(["/"])
     
@@ -28,13 +36,8 @@ export class ConfiguracionComponent implements OnInit {
   }
 
   agregarCuenta() {
-    var accountInfo = { user: this.user._user}
 
-    this.meli.urlIniML(accountInfo).map(
-            res => res.json()).subscribe(data => {
-              window.open(data.url,"_blank");
-          })
-    
+    window.location.replace(this.url);
   }
 
   removerCuenta(cuenta) {

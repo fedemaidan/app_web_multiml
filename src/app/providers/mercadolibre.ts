@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 export class MercadoLibre {
 
   urlML = "https://api.mercadolibre.com"
+  urlIni: string
   preguntas: Pregunta[]
   pregunta: Pregunta
   cantidadPreguntas = null
@@ -19,7 +20,7 @@ export class MercadoLibre {
   	, public api: Api
   	, public user: User) 
   { 
-    
+
   }
 
   urlIniML(params: any) {

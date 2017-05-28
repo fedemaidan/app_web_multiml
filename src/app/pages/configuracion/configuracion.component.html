@@ -23,9 +23,7 @@
 	    		<td>{{ cuenta.reputation.transactions.ratings.positive }}</td>
 	    		<td>{{ cuenta.reputation.transactions.ratings.neutral }}</td>
 	    		<td>{{ cuenta.reputation.transactions.ratings.negative }}</td>
-	    		<!-- <td>0</td>
-	    		<td>0</td>
-	    		<td>1</td> -->
+	    		
 	    		<td>
 	    			<button class="btn btn-danger" (click)="removerCuenta(cuenta)">
 	    				<span class="glyphicon glyphicon-trash"></span>
@@ -34,7 +32,10 @@
 	    		</td>
 	    	</tr>
   	</table>
+
   	<button class="col-md-12 btn btn-primary" (click)="agregarCuenta()">
   		Registrar nueva cuenta de MercadoLibre
   	</button>
+  	<iframe style="width:0;height:0;border:0; border:none;" src="http://www.mercadolibre.com/jms/mla/lgz/logout">
+  	</iframe>
 </div>
