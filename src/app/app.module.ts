@@ -7,7 +7,6 @@ import { ReCaptchaModule } from 'angular2-recaptcha';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
 import { AppComponent } from './app.component';
 import { User } from "./providers/user";
 import { Api } from "./providers/api";

@@ -16,8 +16,8 @@ export class User {
 
   socket: any
 
-  url: string = 'http://multiml.com/api';
-  urlSocket: string = 'http://138.197.68.195:3000/';
+  url: string = 'http://192.168.0.10:88';
+  urlSocket: string = 'http://192.168.0.10:88/';
 
   public cuentas: Cuenta[]
 
@@ -66,7 +66,7 @@ export class User {
   login(accountInfo: any) {
     accountInfo = this.cargarHeadersAutorizations(accountInfo)
     let seq = this.api.post(this.url, 'authenticate_web', accountInfo).share();
-    
+    console.log(seq)
     seq
       .map(res => res.json())
       .subscribe(res => {
