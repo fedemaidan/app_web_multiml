@@ -16,8 +16,8 @@ export class User {
 
   socket: any
 
-  url: string = 'http://192.168.0.10:88';
-  urlSocket: string = 'http://192.168.0.10:88/';
+  url: string = 'http://respondele.com:88';
+  urlSocket: string = 'http://respondele.com:88/';
 
   public cuentas: Cuenta[]
 
