@@ -36,8 +36,8 @@ var User = (function () {
     function User(http, api) {
         this.http = http;
         this.api = api;
-        this.url = 'http://respondele.com:88';
-        this.urlSocket = 'http://respondele.com:88/';
+        this.url = 'https://respondele.com:88';
+        this.urlSocket = 'https://respondele.com:88/';
         if (localStorage.getItem('_user')) {
             this.cargarUsuario(localStorage.getItem('_user'), localStorage.getItem('token'));
         }
