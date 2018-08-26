@@ -3,9 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
-import { ReCaptchaModule } from 'angular2-recaptcha';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 import { AppComponent } from './app.component';
 import { User } from "./providers/user";

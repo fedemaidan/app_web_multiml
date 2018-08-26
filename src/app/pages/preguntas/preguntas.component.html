@@ -11,9 +11,9 @@
 				<p class="fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
 			</div>
 			<div class="col-md-8  mano" (click)="setPregunta(pregunta)">
-				<h3 class="">{{ pregunta.item.title }}</h3>
-				<span class="glyphicon glyphicon-comment icono "></span>
-					{{ pregunta.text }}
+				<p class="pregunta_texto">{{ pregunta.item.title }}</p>
+				
+					<p class="texto"><span class="glyphicon glyphicon-comment icono "></span> {{ pregunta.text }}</p>
 			</div>
 			<div class="col-md-2" style="text-align: center;">
 				<span class="usuario">{{ pregunta.seller_name }}</span>
@@ -37,7 +37,7 @@
 			
 			<div class="col-md-11 col-md-offset-1 respuesta" [@preguntaState]="meli.pregunta != pregunta ? 'inactive' : 'active'"  >
 				<textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea >
-				<button class="btn btn-primary botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
+				<button class="btn botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
 			</div>
 			
 			

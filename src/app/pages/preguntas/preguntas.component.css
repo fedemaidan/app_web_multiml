@@ -2,6 +2,14 @@
 	margin-top: 105px
 }
 
+.pregunta_texto {
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    border-color: #363a8e;
+    border-radius: 3px;
+    cursor: inherit;
+
+}
 .pregunta {
 	width: 100%;
 	padding: 10px 15px;
@@ -25,10 +33,18 @@
     border-radius: 10px;
 }
 
+
+.texto {
+    font-family: "RobotoThin", sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    line-height: 20px;
+}
+
 .icono {
 	margin-right: 10px;
 	margin-left: 10px;
-    color: black;
+    color: #2691C2;
 }
 
 .verConversacion {
@@ -36,8 +52,25 @@
 }
 
 .botonResponder {
-	width: 100%
+	border-radius: 50px;
+    font-size: 20px;
+    line-height: 2em;
+    text-transform: uppercase;
+    padding: 10px 40px;
+    min-width: 192px;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    background-color: #2691C2;
+    border-color: #2691C2;
+    margin-top: 20px;
+    margin-bottom:  20px;
+}
 
+.botonResponder:hover {
+    background-color: white;
+    color: #2691C2;
 }
 
 .respuesta {
@@ -56,4 +89,8 @@
 
 .fecha {
     color: #9F9F9F;
+}
+
+.nav_icon {
+    color: white !important;
 }

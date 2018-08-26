@@ -30,8 +30,8 @@ body {
 	color: black;
 }
 .navbar-inverse {
-     background-color: #FFBB00; 
-     border-color: #FFBB00; 
+     background-color: #2691C2; 
+     border-color: #2691C2; 
 }
 
 .preguntas {
@@ -45,10 +45,45 @@ body {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: #FFBB00;
+    
     border-radius: 10px;
 }
 
 .logo {
     height: 50px;   
+    border-radius: 25px;
+}
+
+.icon_btn {
+    border: 2px solid white;
+    border-radius: 25px;
+    margin: 2px;
+    color: white;
+}
+
+.icon_btn:hover {
+    background-color: white;
+    color: #2691C2;
+}
+
+.icon_btn:hover span {
+    background-color: white;
+    color: #2691C2;
+}
+
+.icon_btn:hover b {
+    color: #2691C2;
+}
+
+.icon_btn span, b {
+    color: white;
+}
+
+.titulo {
+    color: white;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+    text-shadow: 1px 1px rgba(0,0,0,.72);
+    line-height: 1.2;
+    font-size: 30px;
 }

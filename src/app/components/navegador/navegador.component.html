@@ -11,21 +11,23 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
           <li href="#">
-              <img class="logo" src="assets/logo.png" alt="">
+               <img class="logo" src="assets/respondele.png" alt=""> 
+              <!-- <p class="titulo">MultiML</p> -->
           </li>            
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a routerLink="/preguntas" title="Ver preguntas"><span class="glyphicon glyphicon-comment"></span> <b>{{ this.meli.cantidadPreguntas}}</b> </a>
+            <li class="icon_btn">
+                <a routerLink="/preguntas" title="Ver preguntas"><span class="glyphicon glyphicon-comment nav_icon"></span> <b>{{ this.meli.cantidadPreguntas}}</b>
+                 </a>
             </li>
-            <li>
-                <a routerLink="/configuracion" title="Configurar cuentas"><span class="glyphicon glyphicon-wrench"></span></a>
+            <li class="icon_btn">
+                <a routerLink="/configuracion" title="Configurar cuentas"><span class="glyphicon glyphicon-wrench nav_icon"></span></a>
             </li>
-            <li>
-                <a routerLink="/preguntas" (click)="sincronizarTodo()" title="Sincronizar todo nuevamente"><span class="glyphicon glyphicon-refresh"></span></a>
+            <li class="icon_btn">
+                <a routerLink="/preguntas" (click)="sincronizarTodo()" title="Sincronizar todo nuevamente"><span class="glyphicon glyphicon-refresh nav_icon" ></span></a>
             </li>
-            <li>
-                <a routerLink="/" (click)="logout()" title="Cerrar sesión"><span class="glyphicon glyphicon-off"></span></a>
+            <li class="icon_btn">
+                <a routerLink="/" (click)="logout()" title="Cerrar sesión"><span class="glyphicon glyphicon-off nav_icon"></span></a>
             </li>
         </ul>
       </div>

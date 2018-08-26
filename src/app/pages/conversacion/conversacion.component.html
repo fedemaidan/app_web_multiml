@@ -27,20 +27,18 @@
 
 		<div *ngFor="let pregunta of this.meli.pregunta.preguntas_previas" class="pregunta col-md-12">
 			<div  [ngClass]="(pregunta.answer == null)?'envoltura col-md-8 mano':'envoltura col-md-8'" (click)="seleccionarPregunta(pregunta.id, pregunta.answer == null )">
-				<div class="col-md-1">
-					<span class="glyphicon glyphicon-comment icono" style="color: #60CE65"></span>
-				</div>
 				<div class="col-md-2">
-					{{dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}
+					<span class="glyphicon glyphicon-comment icono" style="color: #60CE65"></span>
+					<span class="time-right">{{dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }} </span>
 				</div>
-				<div class="col-md-9">
-					{{ pregunta.text }}
+				<div class="col-md-10">
+					<p class="texto">{{ pregunta.text }}</p>
 				</div>
 			</div>
 			
 			<div class="col-md-8 col-md-offset-4 envoltura" *ngIf="pregunta.answer" >
 				<div class="col-md-9">
-					{{ pregunta.answer.text }} 
+					<p class="texto">{{ pregunta.answer.text }} </p>
 				</div>
 				<div class="col-md-2">
 					{{dameFechaArgentina(pregunta.answer.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}
