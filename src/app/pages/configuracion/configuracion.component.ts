@@ -12,6 +12,7 @@ export class ConfiguracionComponent implements OnInit {
 
   isLoading: boolean
   url = null
+  hidden: false
 
   constructor(public user: User,
               public meli: MercadoLibre,

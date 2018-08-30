@@ -5,3 +5,53 @@
 .mano {
 	cursor: pointer; cursor: hand;
 }
+
+.botonRegistrar {
+	border-radius: 50px;
+    font-size: 20px;
+    line-height: 2em;
+    text-transform: uppercase;
+    padding: 10px 40px;
+    min-width: 192px;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    background-color: #2691C2;
+    border-color: #2691C2;
+    margin-top: 20px;
+    margin-bottom:  20px;
+}
+
+.botonRegistrar:hover {
+    background-color: white;
+    color: #2691C2;
+}
+
+.botonRemover {
+	border-radius: 50px;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 40px;
+    min-width: 30px;
+    text-align: right;
+    font-weight: 700;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d9534f;
+    margin-top: 5px;
+    margin-bottom:  5px;
+}
+
+.botonRemover:hover {
+    background-color: white;
+    color: #d9534f;
+}
+
+td {
+	font-size: 20px;
+	margin-top: 5px;
+    margin-bottom:  5px;
+    align-items: center;
+
+}

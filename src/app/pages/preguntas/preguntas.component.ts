@@ -37,6 +37,7 @@ export class PreguntasComponent implements OnInit {
   }
   
   ngOnInit() {
+
     if(!this.user.token)
       this.router.navigate(["/"])
 
@@ -44,7 +45,6 @@ export class PreguntasComponent implements OnInit {
     if (this.user.cantidadDeCuentas() == 0) {
       this.router.navigate(["/configuracion"])
     }
-
 
     this.isLoading = true
   	this.meli.actualizarPreguntas({}).map(res => res.json())

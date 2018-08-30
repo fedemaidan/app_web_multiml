@@ -171,6 +171,6 @@ export class User {
       return this.cuentas.length
     }
 
-    return null
+    return 0
   }
 }
