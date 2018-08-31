@@ -8,6 +8,8 @@ import { MercadoLibre } from '../../providers/mercadolibre';
 })
 export class NavegadorComponent implements OnInit {
 
+  isIn = false;   // store state
+  
   constructor(public user: User,
             public meli: MercadoLibre
   	) { }
@@ -22,4 +24,10 @@ export class NavegadorComponent implements OnInit {
   sincronizarTodo() {
     this.meli.sincronizarPreguntas({})
   }
+
+
+  toggleState() { // click handler
+        let bool = this.isIn;
+        this.isIn = bool === false ? true : false; 
+    }
 }

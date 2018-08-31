@@ -18,14 +18,11 @@
 		<!-- End Box Shadow -->
 	</div>
 
-	<div  class="table-responsive" *ngIf="this.user.cantidadDeCuentas() > 0" >
+	<div  class="table" *ngIf="this.user.cantidadDeCuentas() > 0" >
 	 <table class="table table-bordered table-hover u-table--v2 text-center text-uppercase g-col-border-side-0">
 	 	<thead>
 	    	<tr class="g-bg-primary g-color-white g-col-border-top-0">
 	    		<th class="g-brd-white-opacity-0_1">Nickname</th>
-	    		<th class="g-brd-white-opacity-0_1">Positivas</th>
-	    		<th class="g-brd-white-opacity-0_1">Neutrales</th>
-	    		<th class="g-brd-white-opacity-0_1">Negativas</th>
 	    		<th class="g-brd-white-opacity-0_1">Desvincular cuenta de Respondele</th>
 	    	</tr>
     	</thead>
@@ -34,11 +31,6 @@
 	    		<td class="align-middle" (click)="verUsuario(cuenta.id_ml)">
 					<span role="button" class="glyphicon glyphicon-user mano" > {{ cuenta.nickname }}</span>
 	    		</td>
-
-	    		<td class="align-middle">{{ cuenta.reputation.transactions.ratings.positive }}</td>
-	    		<td class="align-middle">{{ cuenta.reputation.transactions.ratings.neutral }}</td>
-	    		<td class="align-middle">{{ cuenta.reputation.transactions.ratings.negative }}</td>
-	    		
 	    		<td class="align-middle text-nowrap">
 	    			<button class="btn botonRemover" (click)="removerCuenta(cuenta)">
 	    				<span class="glyphicon glyphicon-trash"></span>
@@ -48,8 +40,8 @@
 	    	</tr>
   	</table>
 
-  	<button class="btn botonRegistrar" (click)="agregarCuenta()">
-  		Registrar nueva cuenta de MercadoLibre
+  	<button class="btn botonRegistrar btn-block" (click)="agregarCuenta()">
+  		Registrar nueva cuenta de <br>MercadoLibre
   	</button>
    </div>
   	<iframe style="width:0;height:0;border:0; border:none;" src="http://www.mercadolibre.com/jms/mla/lgz/logout">

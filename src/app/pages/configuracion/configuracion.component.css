@@ -9,7 +9,6 @@
 .botonRegistrar {
 	border-radius: 50px;
     font-size: 20px;
-    line-height: 2em;
     text-transform: uppercase;
     padding: 10px 40px;
     min-width: 192px;
@@ -21,6 +20,9 @@
     border-color: #2691C2;
     margin-top: 20px;
     margin-bottom:  20px;
+    clear: both;
+    overflow: hidden;
+    height: auto;
 }
 
 .botonRegistrar:hover {

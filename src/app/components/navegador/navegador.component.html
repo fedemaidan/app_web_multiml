@@ -1,27 +1,29 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>    
-      </div>
-
-      <div class="navbar-collapse collapse">
+        
         <ul class="nav navbar-nav navbar-left">
-          <li href="#">
+          <li>
+            <button type="button" class="navbar-toggle collapsed boton_colapsador" (click)="toggleState()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> <!-- #1 -->
                <img class="logo" src="assets/respondele.png" alt=""> 
               <!-- <p class="titulo">MultiML</p> -->
-          </li>            
+          </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+      </div>
+
+      <div class="collapse navbar-collapse boton_colapsador"  [ngClass]="{ 'in': isIn }"> 
+            <ul class="nav navbar-nav navbar-right">
             <li class="icon_btn">
                 <a routerLink="/preguntas" title="Ver preguntas"><span class="glyphicon glyphicon-comment nav_icon"></span> <b>{{ this.meli.cantidadPreguntas}}</b>
                  </a>
             </li>
             <li class="icon_btn">
-                <a routerLink="/configuracion" title="Configurar cuentas"><span class="glyphicon glyphicon-wrench nav_icon"></span></a>
+                <a routerLink="/configuracion" title="Configurar cuentas"><span class="glyphicon glyphicon-wrench nav_icon">  </span></a>
             </li>
             <li class="icon_btn">
                 <a routerLink="/preguntas" (click)="sincronizarTodo()" title="Sincronizar todo nuevamente"><span class="glyphicon glyphicon-refresh nav_icon" ></span></a>
@@ -29,7 +31,7 @@
             <li class="icon_btn">
                 <a routerLink="/" (click)="logout()" title="Cerrar sesión"><span class="glyphicon glyphicon-off nav_icon"></span></a>
             </li>
-        </ul>
-      </div>
-    </div>
+      </ul>
+        </div> <!-- #2 -->
+  </div>
 </nav>
