@@ -4,6 +4,7 @@ import { Api } from './api';
 import { MercadoLibre } from './mercadolibre';
 import { Pregunta } from '../model/pregunta';
 import { Cuenta } from '../model/cuenta';
+import { environment } from '../../environments/environment';
 import * as SocketIO from 'socket.io-client';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -16,8 +17,8 @@ export class User {
 
   socket: any
 
-  url: string = 'https://api.respondele.com';
-  urlSocket: string = 'https://api.respondele.com/';
+  url: string = environment.api;
+  urlSocket: string = environment.socketApi;
 
   public cuentas: Cuenta[]
 
