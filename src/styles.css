@@ -36,6 +36,11 @@ a:hover {
 figure {
   margin-bottom: 0; }
 
+img.initial-container {
+  width: 100%; 
+  height: 100%;
+}
+
 /*------------------------------------
   Headings
 ------------------------------------*/
