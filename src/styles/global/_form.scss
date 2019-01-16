@@ -44,12 +44,15 @@
 
 .help-links {
   margin: 15px 0 0;
-  color: #b3b3b3;
   font-size: 12px;
 }
 .help-links a {
   color: $secondary-color;
   text-decoration: none;
+}
+.help-links a:hover {
+  color: $main-color;
+  text-decoration: underline;
 }
 
 /* enable absolute positioning */
