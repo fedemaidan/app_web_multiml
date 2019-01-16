@@ -14,9 +14,27 @@
 
     <div class="col-md-6">
       <div class="form">
-          <input type="text"  [(ngModel)]="account.name" placeholder="Username"/>
-          <input type="password"  [(ngModel)]="account.password" placeholder="Password"/>
-          <re-captcha site_key="6Lf2rBwUAAAAAAo3n58ifSSWOq1uYFrqne2JEm2m"></re-captcha>
+
+          <div class="inner-addon right-addon">
+            <i class="glyphicon glyphicon-user"></i>
+            <input type="text" class="form-control" [(ngModel)]="account.name" placeholder="Username"/>
+          </div>
+
+          <div class="inner-addon right-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+            <input type="password" class="form-control" [(ngModel)]="account.password" placeholder="Password"/>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12 text-right">
+              <label class="re-checkbox">Remember me
+                <input type="checkbox" checked="checked">
+                <span class="re-checkmark"></span>
+              </label>
+            </div>
+          </div>
+
+          <re-captcha site_key="6Lf2rBwUAAAAAAo3n58ifSSWOq1uYFrqne2JEm2m" style="transform:scale(0.50);-webkit-transform:scale(0.50);transform-origin:0 0;-webkit-transform-origin:0 0;"></re-captcha>
           <button (click)="submit()">login</button>
 
           <div class="row">
