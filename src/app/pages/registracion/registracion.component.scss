@@ -2,13 +2,10 @@
 @import "~styles/global/_form.scss";
 @import "~styles/global/_checkbox.scss";
 
-.login-page {
+.register-page {
   width: 500px;
   padding: 8% 0 0;
   margin: auto;
-}
-.form .register-form {
-  display: none;
 }
 .container {
   position: relative;
