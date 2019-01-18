@@ -1,52 +1,67 @@
 <app-navegador></app-navegador>
 <div class="general">
-	<app-mensaje></app-mensaje>
+  <div class="container">
 
-	<div class="shortcode-html">
-		<!-- Box Shadow -->
-		<div class="u-shadow-v1-5 g-line-height-2 g-pa-40 g-mb-30" role="alert" *ngIf="this.user.cantidadDeCuentas() == 0">
-		  <h3 class="h2 g-font-weight-300 g-mb-20">Registrar cuenta de MercadoLibre</h3>
-		  <p style="font-size: 20px;">
-		  	Usted no tiene cuentas de MercadoLibre registradas en Respondele. Puede registrar tantas como quiera totalmente gratis.
-		  	Una vez registrado, sincronizaremos con todas sus cuentas las preguntas realizadas sobre sus productos en MercadoLibre. 
-		  	Responda simple y rápido.
-		  	<button class="btn botonRegistrar" (click)="agregarCuenta()">
-		  		Registrar nueva cuenta de MercadoLibre
-		  	</button>
-		  </p>
-		</div>
-		<!-- End Box Shadow -->
-	</div>
+    <div class="row">
+    	<app-mensaje></app-mensaje>
+    </div>
 
-	<div  class="table" *ngIf="this.user.cantidadDeCuentas() > 0" >
-	 <table class="table table-bordered table-hover u-table--v2 text-center text-uppercase g-col-border-side-0">
-	 	<thead>
-	    	<tr class="g-bg-primary g-color-white g-col-border-top-0">
-	    		<th class="g-brd-white-opacity-0_1">Nickname</th>
-	    		<th class="g-brd-white-opacity-0_1">Desvincular cuenta de Respondele</th>
-	    	</tr>
-    	</thead>
-    	 <tbody class="g-font-size-12 g-color-black-opacity-0_6 g-font-weight-600">
-	    	<tr *ngFor="let cuenta of this.user.cuentas">
-	    		<td class="align-middle" (click)="verUsuario(cuenta.id_ml)">
-					<span role="button" class="glyphicon glyphicon-user mano" > {{ cuenta.nickname }}</span>
-	    		</td>
-	    		<td class="align-middle text-nowrap">
-	    			<button class="btn botonRemover" (click)="removerCuenta(cuenta)">
-	    				<span class="glyphicon glyphicon-trash"></span>
-	    				Remover
-	    			</button>
-	    		</td>
-	    	</tr>
-  	</table>
+    <div class="row text-center" *ngIf="this.user.cantidadDeCuentas() == 0">
+      <div class="col-md-12 col-sm-12">
+        <a class="shortcut" (click)="agregarCuenta()">
+          <span class="glyphicon glyphicon-plus"></span>
+          <h2>Agregar Cuenta</h2>
+        </a>
+      </div>
+    </div>
 
-  	<button class="btn botonRegistrar btn-block" (click)="agregarCuenta()">
-  		Registrar cuenta <img src="./assets/ml.jpg" style="border-radius: 25px;" width="60px">
-  	</button>
-   </div>
-  	<iframe style="width:0;height:0;border:0; border:none;" src="http://www.mercadolibre.com/jms/mla/lgz/logout">
-  	</iframe>
-              
+    <div class="row text-center" *ngIf="this.user.cantidadDeCuentas() > 0">
+      <div class="col-md-4 col-sm-12">
+        <a class="shortcut">
+          <span class="glyphicon glyphicon-user"></span>
+          <h2>{{ cuenta.nickname }}</h2>
+          <p><a (click)="removerCuenta(cuenta)">Remove</a></p>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <a class="shortcut" (click)="agregarCuenta()">
+          <span class="glyphicon glyphicon-plus"></span>
+          <h2>Agregar Cuenta</h2>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- old template -->
+  	<div  class="table" *ngIf="this.user.cantidadDeCuentas() > 0" >
+  	 <table class="table table-bordered table-hover u-table--v2 text-center text-uppercase g-col-border-side-0">
+  	 	<thead>
+  	    	<tr class="g-bg-primary g-color-white g-col-border-top-0">
+  	    		<th class="g-brd-white-opacity-0_1">Nickname</th>
+  	    		<th class="g-brd-white-opacity-0_1">Desvincular cuenta de Respondele</th>
+  	    	</tr>
+      	</thead>
+      	 <tbody class="g-font-size-12 g-color-black-opacity-0_6 g-font-weight-600">
+  	    	<tr *ngFor="let cuenta of this.user.cuentas">
+  	    		<td class="align-middle" (click)="verUsuario(cuenta.id_ml)">
+  					<span role="button" class="glyphicon glyphicon-user mano" > {{ cuenta.nickname }}</span>
+  	    		</td>
+  	    		<td class="align-middle text-nowrap">
+  	    			<button class="btn botonRemover" (click)="removerCuenta(cuenta)">
+  	    				<span class="glyphicon glyphicon-trash"></span>
+  	    				Remover
+  	    			</button>
+  	    		</td>
+  	    	</tr>
+    	</table>
+
+    	<button class="btn botonRegistrar btn-block" (click)="agregarCuenta()">
+    		Registrar cuenta <img src="./assets/ml.jpg" style="border-radius: 25px;" width="60px">
+    	</button>
+     </div>
+    	<iframe style="width:0;height:0;border:0; border:none;" src="http://www.mercadolibre.com/jms/mla/lgz/logout">
+    	</iframe>
+  </div>
 </div>
 
 

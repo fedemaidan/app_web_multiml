@@ -1,3 +1,5 @@
+@import "~styles/global/_variables.scss";
+
 .general {
 	margin-top: 105px;
 }
@@ -56,4 +58,21 @@ td {
     margin-bottom:  5px;
     align-items: center;
 
+}
+
+.shortcut {
+  color: $secondary-color!important;
+  cursor: pointer;
+}
+.shortcut:hover, .shortcut:hover > span {
+  color: $main-color!important;
+  text-decoration: none;
+}
+
+.glyphicon {
+    font-size: 70px;
+    color: $secondary-color;
+    background-color: $alt-secondary-color;
+    padding: 35px;
+    border-radius: 100px;
 }
