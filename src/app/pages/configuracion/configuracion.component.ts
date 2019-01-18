@@ -27,13 +27,13 @@ export class ConfiguracionComponent implements OnInit {
 
     if(!this.user.token)
       this.router.navigate(["/"])
-    
+
   	this.isLoading = true
     this.user.actualizarCuentas({})
     	.map(res => res.json())
 	    .subscribe(res => {
 	        this.isLoading = false
-	      }); 
+	      });
   }
 
   agregarCuenta() {
