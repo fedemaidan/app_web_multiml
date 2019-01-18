@@ -24,14 +24,19 @@
                   <input type="text" class="form-control" placeholder="Search">
                 </div>
               </li>
+
               <li class="icon_btn">
-                  <a routerLink="/configuracion" title="Configurar cuentas"><span class="glyphicon glyphicon-wrench nav_icon">  </span></a>
+                <div class="dropdown">
+                  <span class="glyphicon glyphicon-user" data-toggle="dropdown"></span>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a routerLink="/" (click)="logout()" title="Cerrar sesión">Logout</a></li>
+                    <li><a routerLink="/configuracion" title="Configurar cuentas">Configuration</a></li>
+                  </ul>
+                </div>
               </li>
+
               <li class="icon_btn">
-                  <a routerLink="/" (click)="logout()" title="Cerrar sesión"><span class="glyphicon glyphicon-off nav_icon"></span></a>
-              </li>
-              <li class="icon_btn">
-                  <a routerLink="/preguntas" title="Ver preguntas"><span class="glyphicon glyphicon-comment nav_icon"></span> <span class="badge">42</span>{{ this.meli.cantidadPreguntas}}
+                  <a routerLink="/preguntas" title="Ver preguntas"><span class="glyphicon glyphicon-comment nav_icon"></span> <span class="badge">{{ this.meli.cantidadPreguntas}}</span>
                    </a>
               </li>
               <li class="icon_btn">

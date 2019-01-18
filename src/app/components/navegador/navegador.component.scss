@@ -14,7 +14,7 @@ body {
     padding: 15px 0;
 }
 
-.nav > li > a {
+.nav > li > a, .dropdown > .glyphicon {
   padding: 5px 5px;
 }
 
@@ -27,12 +27,36 @@ body {
 }
 
 .inner-addon.right-addon > input[type="text"] {
-  height: 35px!important;
+  height: 38px!important;
 }
 
 .nav.navbar-nav.navbar-right {
   position: relative;
   top: 65px;
+}
+
+.dropdown.open:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 5px;
+    top: 100%;
+    margin-top: 0px;
+    border-width: 0px 12px 12px 12px;
+    border-style: solid;
+    border-color: $secondary-color rgba(0, 0, 0, 0);
+}
+
+.dropdown > ul {
+  margin-top: 12px;
+  background-color: $secondary-color;
+}
+
+.dropdown > ul > li > a {
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-weight: bold;
 }
 
 @media(min-width:768px) {
