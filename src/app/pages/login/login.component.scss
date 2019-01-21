@@ -113,3 +113,12 @@ body {
     text-align: left;
   }
 }
+
+/* reCaptcha styles */
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 450px) {
+  re-captcha /deep/ iframe {
+    width: 300px;
+    padding-right: 100px;
+  }
+}
