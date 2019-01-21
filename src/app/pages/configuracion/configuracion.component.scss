@@ -69,10 +69,27 @@ td {
   text-decoration: none;
 }
 
-.glyphicon {
+.shortcut span.glyphicon {
     font-size: 70px;
     color: $secondary-color;
     background-color: $alt-secondary-color;
     padding: 35px;
     border-radius: 100px;
 }
+
+.extra-shortcut span.glyphicon {
+    font-size: 26px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 70px;
+    color: red;
+    cursor: pointer;
+}
+.extra-shortcut span.glyphicon.inside:hover {
+  font-size: 20px;
+  color: #ffffff;
+  right: 3px;
+  top: 2px;
+}
+
