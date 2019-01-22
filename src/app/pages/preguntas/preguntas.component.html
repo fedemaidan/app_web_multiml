@@ -45,6 +45,33 @@
 
                     <a class="btn btn-default" id="menu-toggle" (click)="toggleMenu()"><span class="glyphicon glyphicon-chevron-left" [ngClass]="{'rotate':showMenu}"></span></a>
 
+                    <div class="media" *ngFor="let pregunta of this.meli.preguntas">
+                      <div class="media-left">
+                        <a href="#">
+                          <img class="media-object" [src]="pregunta.item.thumbnail" data-holder-rendered="true">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">{{ pregunta.item.title }}</h4>
+                        <p class="media-heading fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+                        <p>{{ pregunta.text }}</p>
+                        <div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
+                          <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(pregunta)">
+
+                            <span class="glyphicon glyphicon-comment"></span>
+                          {{ pregunta.cantidad_preguntas_previas}}
+
+                          </button>
+                          <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(pregunta.item)">
+                            <span class="glyphicon glyphicon-modal-window"></span>
+                          </button>
+                          <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
+                            <span class="glyphicon glyphicon-user"></span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
                     <!-- One question -->
                     <div *ngFor="let pregunta of this.meli.preguntas" class="pregunta col-md-12">
 
