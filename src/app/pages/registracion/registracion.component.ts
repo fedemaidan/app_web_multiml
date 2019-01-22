@@ -8,7 +8,7 @@ import { ReCaptchaComponent } from 'angular2-recaptcha';
 @Component({
   selector: 'app-registracion',
   templateUrl: './registracion.component.html',
-  styleUrls: ['./registracion.component.css']
+  styleUrls: ['./registracion.component.scss']
 })
 export class RegistracionComponent implements OnInit {
   @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
@@ -27,7 +27,7 @@ export class RegistracionComponent implements OnInit {
   		) { }
 
 	ngOnInit() {
-    
+
 	}
 
 	registrar() {
@@ -56,6 +56,6 @@ export class RegistracionComponent implements OnInit {
         }, (err) => {
           console.log(err.message)
           this.mensajero.mostrarMensajeError("Falló en el servidor")
-        }); 
+        });
 	}
 }
