@@ -51,3 +51,34 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* @media (min-width: @screen-md-min) { ... } */
+div.logo-container > img {
+  padding-top: 40px;
+}
+
+@media (max-width: 600px) and (max-height: 700px) {
+  div.logo-container > img {
+    padding-top: 400px;
+  }
+}
+@media (min-height: 701px) and (max-height: 900px) {
+  div.logo-container > img {
+    padding-top: 250px;
+  }
+}
+
+
+@media (max-width: 812px) {
+  div.col-md-6.text-right {
+    text-align: left;
+  }
+}
+/* reCaptcha styles */
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 450px) {
+  re-captcha /deep/ iframe {
+    width: 300px;
+    padding-right: 100px;
+  }
+}
