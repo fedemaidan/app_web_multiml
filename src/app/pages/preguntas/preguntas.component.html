@@ -1,48 +1,100 @@
 <app-navegador></app-navegador>
 <div class="list-group">
-		<app-mensaje></app-mensaje>
-		<p *ngIf="this.meli.cantidadPreguntas == 0">
-			No hay preguntas cargadas
-		</p>
-		<div *ngFor="let pregunta of this.meli.preguntas" class="pregunta col-md-12">
-			
-			<div class="col-md-2" style="text-align: center;">
-				<img  [src]="pregunta.item.thumbnail" class="img-circle"/>
-				<p class="fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
-			</div>
-			<div class="col-md-8  mano" (click)="setPregunta(pregunta)">
-				<p class="pregunta_texto">{{ pregunta.item.title }}</p>
-				
-					<p class="texto"><span class="glyphicon glyphicon-comment icono "></span> {{ pregunta.text }}</p>
-			</div>
-			<div class="col-md-2" style="text-align: center;">
-				<span class="usuario">{{ pregunta.seller_name }}</span>
-				
-				<div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
-				  <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(pregunta)">
-				  	
-				  	<span class="glyphicon glyphicon-comment"></span> 
-					{{ pregunta.cantidad_preguntas_previas}}
-				  	
-				  </button>
-				  <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(pregunta.item)">
-				  	<span class="glyphicon glyphicon-modal-window"></span>
-				  </button>
-				  <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
-				  	<span class="glyphicon glyphicon-user"></span>
-				  </button>
-				</div>
+  <div class="container-fluid">
 
-			</div>
-			
-			<div class="col-md-11 col-md-offset-1 respuesta" [@preguntaState]="meli.pregunta != pregunta ? 'inactive' : 'active'"  >
-				<textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea >
-				<button class="btn botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
-			</div>
-			
-			
-			
+    <div class="row">
+  		<app-mensaje></app-mensaje>
+    </div>
 
-		</div>
-	
+    <div class="row">
+
+      <div class="col-md-12" *ngIf="this.meli.cantidadPreguntas == 0">
+    		<p>No hay preguntas cargadas</p>
+      </div>
+
+  		<div class="col-md-12">
+
+        <div clas="contaier">
+
+          <div id="wrapper" [ngClass]="{'toggled':showMenu}">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+              <ul class="sidebar-nav">
+                <li>
+                  <a class="shortcut">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="username"> juanmzaragoza</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="shortcut">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="username"> fmaidan</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-lg-12">
+
+                    <a class="btn btn-default" id="menu-toggle" (click)="toggleMenu()"><span class="glyphicon glyphicon-chevron-left" [ngClass]="{'rotate':showMenu}"></span></a>
+
+                    <!-- One question -->
+                    <div *ngFor="let pregunta of this.meli.preguntas" class="pregunta col-md-12">
+
+                      <div class="col-md-2" style="text-align: center;">
+                        <img  [src]="pregunta.item.thumbnail" class="img-circle"/>
+                        <p class="fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+                      </div>
+                      <div class="col-md-8  mano" (click)="setPregunta(pregunta)">
+                        <p class="pregunta_texto">{{ pregunta.item.title }}</p>
+
+                          <p class="texto"><span class="glyphicon glyphicon-comment icono "></span> {{ pregunta.text }}</p>
+                      </div>
+                      <div class="col-md-2" style="text-align: center;">
+                        <span class="usuario">{{ pregunta.seller_name }}</span>
+
+                        <div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
+                          <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(pregunta)">
+
+                            <span class="glyphicon glyphicon-comment"></span>
+                          {{ pregunta.cantidad_preguntas_previas}}
+
+                          </button>
+                          <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(pregunta.item)">
+                            <span class="glyphicon glyphicon-modal-window"></span>
+                          </button>
+                          <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
+                            <span class="glyphicon glyphicon-user"></span>
+                          </button>
+                        </div>
+
+                      </div>
+
+                      <div class="col-md-11 col-md-offset-1 respuesta" [@preguntaState]="meli.pregunta != pregunta ? 'inactive' : 'active'"  >
+                        <textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea >
+                        <button class="btn botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
+                      </div>
+
+                    </div>
+                    <!-- End One question -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+
+          </div>
+          <!-- /#wrapper -->
+        </div>
+
+      </div>
+	</div>
 </div>
