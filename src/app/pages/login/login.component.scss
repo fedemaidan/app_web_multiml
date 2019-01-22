@@ -53,3 +53,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* @media (min-width: @screen-md-min) { ... } */
+@media (max-width: 812px) {
+  div.logo-container > img {
+    padding-top: 200px;
+  }
+  div.col-md-6.text-right {
+    text-align: left;
+  }
+}
+
+/* reCaptcha styles */
+/* Medium devices (desktops, 992px and up) */
+@media (max-width: 450px) {
+  re-captcha /deep/ iframe {
+    width: 300px;
+    padding-right: 100px;
+  }
+}
