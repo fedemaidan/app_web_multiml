@@ -14,7 +14,7 @@
 
   		<div class="col-md-12">
 
-        <div clas="contaier">
+        <div class="container">
 
           <div id="wrapper" [ngClass]="{'toggled':showMenu}">
 
@@ -41,76 +41,47 @@
             <div id="page-content-wrapper">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-lg-12">
+                  <div class="col-md-12">
 
                     <a class="btn btn-default" id="menu-toggle" (click)="toggleMenu()"><span class="glyphicon glyphicon-chevron-left" [ngClass]="{'rotate':showMenu}"></span></a>
 
-                    <div class="media" *ngFor="let pregunta of this.meli.preguntas">
-                      <div class="media-left">
+                    <div class="row content" *ngFor="let pregunta of this.meli.preguntas">
+
+                      <div class="col-md-2 col-xs-12 media-left">
                         <a href="#">
-                          <img class="media-object" [src]="pregunta.item.thumbnail" data-holder-rendered="true">
+                          <img [src]="pregunta.item.thumbnail">
                         </a>
                       </div>
-                      <div class="media-body">
-                        <h4 class="media-heading">{{ pregunta.item.title }}</h4>
-                        <p class="media-heading fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
-                        <p>{{ pregunta.text }}</p>
-                        <div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
-                          <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(pregunta)">
 
-                            <span class="glyphicon glyphicon-comment"></span>
-                          {{ pregunta.cantidad_preguntas_previas}}
+                      <div class="col-md-10 col-xs-12">
+                          <div class="col-md-12 col-xs-12 mano" (click)="setPregunta(pregunta)">
+                            <h3 class="media-heading">{{ pregunta.item.title }}</h3>
+                            <p class="media-heading fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+                            <p class="question-text">{{ pregunta.text }}</p>
+                          </div>
+                          <div class="col-md-12 col-xs-12">
+                            <div class="btn-group acciones">
+                              <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(pregunta)">
 
-                          </button>
-                          <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(pregunta.item)">
-                            <span class="glyphicon glyphicon-modal-window"></span>
-                          </button>
-                          <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
-                            <span class="glyphicon glyphicon-user"></span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                                  <span class="glyphicon glyphicon-comment"></span>
+                                {{ pregunta.cantidad_preguntas_previas}}
 
-                    <!-- One question -->
-                    <div *ngFor="let pregunta of this.meli.preguntas" class="pregunta col-md-12">
-
-                      <div class="col-md-2" style="text-align: center;">
-                        <img  [src]="pregunta.item.thumbnail" class="img-circle"/>
-                        <p class="fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
-                      </div>
-                      <div class="col-md-8  mano" (click)="setPregunta(pregunta)">
-                        <p class="pregunta_texto">{{ pregunta.item.title }}</p>
-
-                          <p class="texto"><span class="glyphicon glyphicon-comment icono "></span> {{ pregunta.text }}</p>
-                      </div>
-                      <div class="col-md-2" style="text-align: center;">
-                        <span class="usuario">{{ pregunta.seller_name }}</span>
-
-                        <div class="btn-group acciones" role="group" aria-label="..." style="text-align: center;">
-                          <button type="button" class="btn btn-default" title="Ver conversación" (click)="verConversacion(pregunta)">
-
-                            <span class="glyphicon glyphicon-comment"></span>
-                          {{ pregunta.cantidad_preguntas_previas}}
-
-                          </button>
-                          <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(pregunta.item)">
-                            <span class="glyphicon glyphicon-modal-window"></span>
-                          </button>
-                          <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
-                            <span class="glyphicon glyphicon-user"></span>
-                          </button>
-                        </div>
-
-                      </div>
-
-                      <div class="col-md-11 col-md-offset-1 respuesta" [@preguntaState]="meli.pregunta != pregunta ? 'inactive' : 'active'"  >
-                        <textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea >
-                        <button class="btn botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
+                                </button>
+                                <button type="button" class="btn btn-default" title="Ver publicación" (click)="verPublicacion(pregunta.item)">
+                                  <span class="glyphicon glyphicon-modal-window"></span>
+                                </button>
+                                <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
+                                  <span class="glyphicon glyphicon-user"></span>
+                                </button>
+                              </div>
+                          </div>
+                          <div class="col-md-12 respuesta" [@preguntaState]="meli.pregunta != pregunta ? 'inactive' : 'active'"  >
+                            <textarea rows="8" class="form-control " [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea >
+                            <button class="btn botonResponder" (click)="responder()" title="Control + Enter">Responder</button>
+                          </div>
                       </div>
 
                     </div>
-                    <!-- End One question -->
 
                   </div>
                 </div>
