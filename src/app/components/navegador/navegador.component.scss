@@ -32,7 +32,7 @@ body {
 
 .nav.navbar-nav.navbar-right {
   position: relative;
-  top: 65px;
+  top: 40px;
 }
 
 .dropdown.open:before {
@@ -61,7 +61,7 @@ body {
 
 @media(min-width:768px) {
     body {
-        padding-top: 120px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
     }
 
     .navbar-fixed-top .navbar-brand {
@@ -93,7 +93,7 @@ body {
 }
 
 .logo {
-    height: 150px;
+    height: 115px;
     margin-left:40px;
 }
 
