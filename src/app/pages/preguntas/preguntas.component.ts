@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MercadoLibre } from '../../providers/mercadolibre';
 import { User } from '../../providers/user';
 import { Pregunta } from '../../model/pregunta';
@@ -23,7 +23,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       transition('inactive => active', animate('200ms ease-in')),
       transition('active => inactive', animate('200ms ease-out'))
     ])
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class PreguntasComponent implements OnInit {
 
