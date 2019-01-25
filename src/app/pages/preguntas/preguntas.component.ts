@@ -8,7 +8,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
   selector: 'app-preguntas',
   templateUrl: './preguntas.component.html',
-  styleUrls: ['./preguntas.component.css'],
+  styleUrls: ['./preguntas.component.scss'],
   animations: [
     trigger('preguntaState', [
       state('inactive', style({
@@ -29,13 +29,14 @@ export class PreguntasComponent implements OnInit {
 
   isLoading: boolean = false
   respuesta: string = ""
+  showMenu: boolean = true
 
   constructor(public meli: MercadoLibre,
               public user: User,
               private router: Router) {
 
   }
-  
+
   ngOnInit() {
 
     if(!this.user.token)
@@ -66,7 +67,7 @@ export class PreguntasComponent implements OnInit {
   verUsuario(from) {
   	var url = "http://www.mercadolibre.com.ar/jm/profile?id="+from.id;
   	window.open(url);
-  }  
+  }
   verConversacion(pregunta) {
     this.meli.setPregunta(pregunta)
     this.router.navigate(["/conversacion"])
@@ -78,16 +79,16 @@ export class PreguntasComponent implements OnInit {
 
   responder() {
   	this.meli.responderPregunta( {
-                                    user_id_ml: this.meli.pregunta.seller_id, 
-                                    question_id: this.meli.pregunta.question_id, 
-                                    text: this.respuesta 
+                                    user_id_ml: this.meli.pregunta.seller_id,
+                                    question_id: this.meli.pregunta.question_id,
+                                    text: this.respuesta
                                   })
 	    .map(resp => resp.json())
 	    .subscribe((respuesta) => {
 	       this.respuesta = ""
 	    }, (err) => {
       		console.log(err)
-    }); 
+    });
   }
 
 
@@ -100,6 +101,10 @@ export class PreguntasComponent implements OnInit {
 
   dameNickname(id) {
     return this.user.dameNickname(id)
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu
   }
 
 }

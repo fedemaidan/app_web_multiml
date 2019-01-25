@@ -20,7 +20,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.form button, .btn.botonResponder {
   font-family: "RooneySans-Regular", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
+.form button:hover,.form button:active,.form button:focus, , .btn.botonResponder:hover {
   background: $main-color;
   color: #fff;
 }
