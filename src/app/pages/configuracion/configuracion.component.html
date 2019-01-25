@@ -16,20 +16,20 @@
     </div>
 
     <div class="row text-center" *ngIf="this.user.cantidadDeCuentas() > 0">
-      <div class="col-md-4 col-sm-12" *ngFor="let cuenta of this.user.cuentas">
-        <a class="shortcut" (click)="verUsuario(cuenta.id_ml)">
+      <div class="col-md-2 col-sm-3 col-xs-6" *ngFor="let cuenta of this.user.cuentas">
+        <a class="shortcut" (click)="verUsuario(cuenta.id_ml)" [attr.title]="cuenta.nickname">
           <span class="glyphicon glyphicon-user"></span>
-          <h2>{{ cuenta.nickname }}</h2>
+          <h4>{{ cuenta.nickname }}</h4>
         </a>
         <a class="extra-shortcut" (click)="removerCuenta(cuenta)">
           <span class="glyphicon glyphicon-remove"></span>
           <span class="glyphicon glyphicon-remove inside"></span>
         </a>
       </div>
-      <div class="col-md-4 col-sm-12">
+      <div class="col-md-2 col-sm-3 col-xs-6">
         <a class="shortcut" (click)="agregarCuenta()">
           <span class="glyphicon glyphicon-plus"></span>
-          <h2>Agregar Cuenta</h2>
+          <h4>Agregar Cuenta</h4>
         </a>
       </div>
     </div>

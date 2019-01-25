@@ -55,9 +55,18 @@ body {
 }
 
 /* @media (min-width: @screen-md-min) { ... } */
-@media (max-width: 812px) {
+@media (max-width: 500px) {
   div.logo-container > img {
-    padding-top: 200px;
+    width: 170px;
+    padding-top: 160px;
+  }
+  div.col-md-6.text-right {
+    text-align: center;
+  }
+}
+@media (min-width: 501px) and (max-width: 812px) {
+  div.logo-container > img {
+    width: 260px;
   }
   div.col-md-6.text-right {
     text-align: left;
