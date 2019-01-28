@@ -1,5 +1,8 @@
+@import "~styles/global/_variables.scss";
+
 .mano {
-    {cursor: pointer; cursor: hand;}
+  cursor: pointer;
+  cursor: hand;
 }
 
 .envoltura {
@@ -29,12 +32,8 @@
 
 
 /* Chat containers */
-.container {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0;
+.container .col-left {
+  background-color: $alt-secondary-color;
 }
 
 /* Darker chat container */
@@ -52,12 +51,32 @@
 
 /* Style images #54d9be */
 .container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
+    width: 90%;
+    margin-top: 30px;
 }
+
+hr {
+  border: solid 2px $alt-secondary-color;
+  border-radius: 15px;
+  width: 94%;
+  margin-top: 1rem!important;
+}
+
+input[type="text"] {
+  height: 30px;
+}
+
+.form-group {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  label {
+    margin: 5px 15px 0px 43px;
+  }
+}
+
 
 /* Style the right image */
 .container img.right {
