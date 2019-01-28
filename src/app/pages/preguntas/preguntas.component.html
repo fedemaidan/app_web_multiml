@@ -6,80 +6,66 @@
   		<app-mensaje></app-mensaje>
     </div>
 
-    <div class="row">
+  		<div class="container">
 
-      <div class="col-md-12" *ngIf="this.meli.cantidadPreguntas == 0">
-    		<p>No hay preguntas cargadas</p>
-      </div>
+        <div id="wrapper" [ngClass]="{'toggled':showMenu}">
 
-  		<div class="col-md-12">
+          <!-- Sidebar -->
+          <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+              <li>
+                <a class="shortcut">
+                  <span class="glyphicon glyphicon-user"></span>
+                  <span class="username"> juanmzaragoza</span>
+                </a>
+              </li>
+              <li>
+                <a class="shortcut">
+                  <span class="glyphicon glyphicon-user"></span>
+                  <span class="username"> fmaidan</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- /#sidebar-wrapper -->
 
-        <div class="container">
+          <!-- Page Content -->
+          <div id="page-content-wrapper">
 
-          <div id="wrapper" [ngClass]="{'toggled':showMenu}">
+            <a class="btn btn-default" id="menu-toggle" (click)="toggleMenu()"><span class="glyphicon glyphicon-chevron-left" [ngClass]="{'rotate':showMenu}"></span></a>
 
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-              <ul class="sidebar-nav">
-                <li>
-                  <a class="shortcut">
-                    <span class="glyphicon glyphicon-user"></span>
-                    <span class="username"> juanmzaragoza</span>
-                  </a>
-                </li>
-                <li>
-                  <a class="shortcut">
-                    <span class="glyphicon glyphicon-user"></span>
-                    <span class="username"> fmaidan</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- /#sidebar-wrapper -->
-
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-12">
-
-                    <a class="btn btn-default" id="menu-toggle" (click)="toggleMenu()"><span class="glyphicon glyphicon-chevron-left" [ngClass]="{'rotate':showMenu}"></span></a>
-
-                    <div class="row content" *ngFor="let pregunta of this.meli.preguntas">
-
-                      <div class="col-md-2 col-xs-12 media-left">
-                        <a href="#">
-                          <img [src]="pregunta.item.thumbnail">
-                        </a>
-                      </div>
-
-                      <div class="col-md-10 col-xs-12">
-                          <div class="col-md-12 col-xs-12">
-                            <h3 class="media-heading mano" (click)="verPublicacion(pregunta.item)">{{ pregunta.item.title }}</h3>
-                            <p class="media-heading fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
-                            <p class="question-text mano" (click)="verConversacion(pregunta)">{{ pregunta.text }}</p>
-                          </div>
-                          <div class="col-md-12 col-xs-12">
-                            <div class="btn-group acciones">
-                              <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
-                                <span class="glyphicon glyphicon-user"> NOMBRE_USUARIO</span>
-                              </button>
-                              </div>
-                          </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-                </div>
+            <!-- no questions -->
+            <div class="row" *ngIf="this.meli.cantidadPreguntas == 0">
+              <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <img src="./assets/sin-preguntas.png" >
               </div>
             </div>
-            <!-- /#page-content-wrapper -->
 
+            <!-- questions list -->
+            <div class="media" *ngFor="let pregunta of this.meli.preguntas">
+
+              <div class="media-left">
+                <a href="#">
+                  <img class="media-object" [src]="pregunta.item.thumbnail" data-holder-rendered="true">
+                </a>
+              </div>
+
+              <div class="media-body">
+                <h4 class="media-heading mano" (click)="verPublicacion(pregunta.item)">{{ pregunta.item.title }}</h4>
+                <p class="media-heading fecha">{{ dameFechaArgentina(pregunta.date_created)  | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+                <p class="question-text mano" (click)="verConversacion(pregunta)">{{ pregunta.text }}</p>
+                <div class="btn-group acciones">
+                  <button type="button" class="btn btn-default" title="Ver usuario del cliente" (click)="verUsuario(pregunta.from)">
+                    <span class="glyphicon glyphicon-user"> {{ pregunta.from.id }}</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <!-- /#wrapper -->
-        </div>
+          <!-- /#page-content-wrapper -->
 
+        </div>
+        <!-- /#wrapper -->
       </div>
-	</div>
 </div>

@@ -80,11 +80,6 @@
     color: #2691C2;
 }
 
-.respuesta {
-	/*margin: 30px*/
-}
-
-
 .acciones {
 	margin: 1px;
 	float: right;
@@ -98,14 +93,10 @@
     color: #9F9F9F;
 }
 
-.nav_icon {
-    color: white !important;
-}
-
 /* Toggle Styles */
 #menu-toggle {
-  position: absolute;
-  left: -40px;
+  /*position: absolute;
+  left: -40px;*/
 }
 .btn.btn-default span.glyphicon {
   font-size: 15px;
@@ -139,7 +130,7 @@
     /*left: 250px;*/
     width: 0;
     height: 100%;
-    margin-left: -285px;;
+    margin-left: -240px;
     overflow-y: auto;
     /*background: #000;*/
     -webkit-transition: all 0.5s ease;
@@ -174,7 +165,6 @@
 }
 
 .sidebar-nav li {
-    /*text-indent: 20px;*/
     padding: 5px 12px;
     line-height: 40px;
 }
@@ -224,6 +214,7 @@
 
     #sidebar-wrapper {
         width: 250px;
+        margin-left: -285px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -242,6 +233,10 @@
 }
 
 @media(max-width:768px) {
+  .media {
+    padding-right: -20px!important;
+    padding-left: -20px!important;
+  }
   .media-left img {
     width: 64px!important;
     height: 64px!important;
@@ -250,7 +245,14 @@
     padding: 5px;
   }
   .acciones .btn.btn-default span.glyphicon {
-    font-size: 22px;
+    font-size: 14px;
+  }
+  .container, .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  body > app-root > .container {
+    width: 95%!important;
   }
 }
 
@@ -274,28 +276,29 @@
   color: inherit;
 }
 
-.row.content {
+.media {
   border-right: 7px solid $alt-secondary-color;
   border-bottom: 7px solid $alt-secondary-color;
   margin-left: 0px!important;
   background-color: #f9f9f959;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 h3.media-heading {
-  margin-top: 15px;
+  /*margin-top: 15px;*/
 }
 .media-left {
-  padding-right: 0px;
+  /* padding-right: 0px; */
   padding-left: 0px;
 
 }
 .media-left img {
-  width: 100%!important;
-  height: 100%!important;
+  width: 128px;
+  height: 128px;
 }
 .media-body {
   padding-left: 5px;
 }
 p.question-text {
-  min-height: 74px;
+  /* min-height: 74px; */
 }
