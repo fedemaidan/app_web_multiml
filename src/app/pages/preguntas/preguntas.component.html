@@ -6,10 +6,6 @@
   		<app-mensaje></app-mensaje>
     </div>
 
-      <div class="row" *ngIf="this.meli.cantidadPreguntas == 0">
-    		<p>No hay preguntas cargadas</p>
-      </div>
-
   		<div class="container">
 
         <div id="wrapper" [ngClass]="{'toggled':showMenu}">
@@ -38,6 +34,14 @@
 
             <a class="btn btn-default" id="menu-toggle" (click)="toggleMenu()"><span class="glyphicon glyphicon-chevron-left" [ngClass]="{'rotate':showMenu}"></span></a>
 
+            <!-- no questions -->
+            <div class="row" *ngIf="this.meli.cantidadPreguntas == 0">
+              <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                <img src="./assets/sin-preguntas.png" >
+              </div>
+            </div>
+
+            <!-- questions list -->
             <div class="media" *ngFor="let pregunta of this.meli.preguntas">
 
               <div class="media-left">
