@@ -5,6 +5,7 @@
     <div class="container">
 
       <!-- New Layout -->
+      <!-- https://github.com/zefoy/ngx-perfect-scrollbar/tree/v4.0.0 -->
       <div class="row text-center">
         <div class="col-md-3 col-left">
           <img class="img-thumbnail .img-responsive" [src]="this.meli.pregunta.item.thumbnail" />
@@ -35,14 +36,75 @@
           </div>
           <hr />
           <div class="row">
-            Contenido del chat
+            <div malihu-scrollbar class="content-chat">
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget pretium sapien, et gravida metus.</p></div>
+              </div>
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Aliquam gravida semper pharetra.</p></div>
+              </div>
+              <div class="message me">
+                <img src="http://api.randomuser.me/portraits/med/women/36.jpg" />
+                <div><p>
+                  Curabitur congue lorem quis dolor blandit hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                  Vivamus bibendum efficitur tortor, non porttitor magna imperdiet in.
+                  </p></div>
+              </div>
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget pretium sapien, et gravida metus.</p></div>
+              </div>
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Aliquam gravida semper pharetra.</p></div>
+              </div>
+              <div class="message me">
+                <img src="http://api.randomuser.me/portraits/med/women/36.jpg" />
+                <div><p>
+                  Curabitur congue lorem quis dolor blandit hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                  Vivamus bibendum efficitur tortor, non porttitor magna imperdiet in.
+                  </p></div>
+              </div>
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget pretium sapien, et gravida metus.</p></div>
+              </div>
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Aliquam gravida semper pharetra.</p></div>
+              </div>
+              <div class="message me">
+                <img src="http://api.randomuser.me/portraits/med/women/36.jpg" />
+                <div><p>
+                  Curabitur congue lorem quis dolor blandit hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                  Vivamus bibendum efficitur tortor, non porttitor magna imperdiet in.
+                  </p></div>
+              </div>
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget pretium sapien, et gravida metus.</p></div>
+              </div>
+              <div class="message">
+                <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
+                <div><p>Aliquam gravida semper pharetra.</p></div>
+              </div>
+              <div class="message me">
+                <img src="http://api.randomuser.me/portraits/med/women/36.jpg" />
+                <div><p>
+                  Curabitur congue lorem quis dolor blandit hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                  Vivamus bibendum efficitur tortor, non porttitor magna imperdiet in.
+                  </p></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <!-- END New Layout -->
 
       <!-- Old Layout -->
-      <div class="row">
+      <!--div class="row">
     		<div class="col-md-2">
     				<img  [src]="this.meli.pregunta.item.thumbnail" class="img-circle" horizontalAlignment="center"/>
     			</div>
@@ -96,7 +158,7 @@
     			</div>
 
     		</div>
-      </div>
+      </div-->
       <!-- END Old Layout -->
 
     </div>
