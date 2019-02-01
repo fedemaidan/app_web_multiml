@@ -121,8 +121,6 @@ input[type="text"] {
 }
 
 
-
-
 .texto {
     font-family: "RobotoThin", sans-serif;
     font-size: 20px;
@@ -135,7 +133,7 @@ input[type="text"] {
     display: block;
     width: 100%;
     max-height: calc(100vh - 333px);
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     background: #fff;
 
@@ -216,4 +214,8 @@ input[type="text"] {
             }
         }
     }
+}
+
+perfect-scrollbar .ps__rail-y {
+  opacity: 0.6!important;
 }
