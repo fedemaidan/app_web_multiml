@@ -7,7 +7,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
   selector: 'app-conversacion',
   templateUrl: './conversacion.component.html',
-  styleUrls: ['./conversacion.component.css'],
+  styleUrls: ['./conversacion.component.scss'],
   animations: [
     trigger('preguntaState', [
       state('inactive', style({
@@ -36,7 +36,7 @@ respuesta: string
   ngOnInit() {
     if(!this.user.token)
       this.router.navigate(["/"])
-    
+
     if (this.meli.pregunta) {
       this.usuarioPregunta = "USUARIO"
       this.respuesta = ""
@@ -53,9 +53,9 @@ respuesta: string
 
   responder() {
     this.meli.responderPregunta( {
-                                    user_id_ml: this.meli.pregunta.seller_id, 
-                                    question_id: this.meli.pregunta.question_id, 
-                                    text: this.respuesta 
+                                    user_id_ml: this.meli.pregunta.seller_id,
+                                    question_id: this.meli.pregunta.question_id,
+                                    text: this.respuesta
                                   })
     .map(resp => resp.json())
     .subscribe((respuesta) => {
@@ -64,9 +64,9 @@ respuesta: string
        this.router.navigate(["/preguntas"])
     }, (err) => {
       	console.log(err)
-    }); 
+    });
   }
-  
+
   seleccionarPregunta(question_id, actualizar) {
     if (actualizar)
       this.meli.setPreguntaPorId(question_id)
