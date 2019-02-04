@@ -132,17 +132,23 @@ input[type="text"] {
 .content-chat {
     display: block;
     width: 100%;
-    max-height: calc(100vh - 333px);
+    max-height: calc(100vh - 375px);
     overflow-y: hidden;
     overflow-x: hidden;
     background: #fff;
 
     & .message {
         display: flex;
-        margin: 10px 80px 20px 80px;
+        margin: 10px 80px 10px 80px;
         min-height: 30px;
         height: auto;
         text-align: left;
+        padding: 10px;
+        border-radius: 25px;
+
+        &.selected {
+          background-color: #e4e4e4;
+        }
 
         &.me {
             & img {
@@ -218,4 +224,14 @@ input[type="text"] {
 
 perfect-scrollbar .ps__rail-y {
   opacity: 0.6!important;
+}
+
+form.responder .form-group {
+  width: 90%;
+}
+form.responder .form-group textarea {
+  width: 100%;
+}
+form button.btn {
+  border-radius: 20px!important;
 }

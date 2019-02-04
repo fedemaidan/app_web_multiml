@@ -37,7 +37,11 @@
           <div class="row">
             <perfect-scrollbar class="content-chat">
               <span *ngFor="let pregunta of this.meli.pregunta.preguntas_previas">
-                <div class="message">
+                <div [ngClass]="{
+                  'message': true,
+                  'mano': pregunta.answer == null,
+                  'selected': this.meli.pregunta.question_id == pregunta.id
+                }" (click)="seleccionarPregunta(pregunta.id, pregunta.answer == null )">
                   <img src="http://api.randomuser.me/portraits/med/men/66.jpg" />
                   <div><p>{{ pregunta.text }}</p></div>
                 </div>
@@ -47,6 +51,14 @@
                 </div>
               </span>
             </perfect-scrollbar>
+            <form class="form-inline responder" [@preguntaState]="this.meli.pregunta? 'active' : 'inactive'">
+              <div class="form-group">
+                <textarea type="text" name="responder" class="form-control" placeholder="Respondele"  [(ngModel)]="respuesta" (keyup.control.enter)="responder()"></textarea>
+              </div>
+              <button type="submit" class="btn btn-default" (click)="responder()">
+                <span class="glyphicon glyphicon-send"></span>
+              </button>
+            </form>
           </div>
         </div>
       </div>
