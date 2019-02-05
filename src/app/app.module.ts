@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReCaptchaModule } from 'angular2-recaptcha';
+import { PerfectScrollbarModule, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import { AppComponent } from './app.component';
 import { User } from "./providers/user";
@@ -19,6 +20,10 @@ import { NavegadorComponent } from './components/navegador/navegador.component';
 import { RegistracionComponent } from './pages/registracion/registracion.component';
 import { MensajeComponent } from './components/mensaje/mensaje.component';
 import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
+
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 
 @NgModule({
   declarations: [
@@ -39,6 +44,7 @@ import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recup
     HttpModule,
     ReCaptchaModule,
     BrowserAnimationsModule,
+    PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     RouterModule.forRoot([
       {
         path: '',
@@ -64,7 +70,7 @@ import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recup
         path: 'recuperar_contrasena',
         component: RecuperarContrasenaComponent
       }
-    ], { 
+    ], {
       useHash: true
     })
   ],
