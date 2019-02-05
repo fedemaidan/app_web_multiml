@@ -1,0 +1,29 @@
+<app-navegador></app-navegador>
+<div class="general">
+  <div class="container">
+
+    <div class="row">
+    	<app-mensaje></app-mensaje>
+    </div>
+
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default" *ngFor="let pregunta of this.preguntas; let i = index">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="{{'#collapse-'+i}}" aria-expanded="false" aria-controls="collapseOne">
+              {{ pregunta.question }}
+            </a>
+          </h4>
+        </div>
+        <div id="{{'collapse-'+i}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            {{ pregunta.answer }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

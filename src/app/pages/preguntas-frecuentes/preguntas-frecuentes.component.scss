@@ -1,0 +1,45 @@
+@import "~styles/global/_variables.scss";
+
+.general {
+	margin-top: 105px;
+  color: $secondary-color;
+  font-size: 18px;
+}
+
+.panel {
+  border-color: transparent;
+}
+
+.panel .panel-heading{
+  color: $secondary-color;
+  background-color: transparent;
+}
+
+.panel .panel-heading .panel-title{
+  font-size: 22px;
+}
+
+.panel .panel-collapse .panel-body {
+  border-top: 3px solid $secondary-color;
+}
+
+.panel-heading a[aria-expanded="true"]:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e252";    /* taken from bootstrap.css */
+    float: right;
+    color: white;
+    text-shadow: -2px 0 $secondary-color, 0 3px $secondary-color, 2px 0 $secondary-color, 0 -1px $secondary-color;
+}
+.panel-heading a.collapsed:after {
+    /* symbol for "collapsed" panels */
+    font-family: 'Glyphicons Halflings';
+    content: "\e250";
+    float: right;
+    color: $secondary-color;
+}
+
+.panel-heading a:hover, .panel-heading a:focus {
+  color: $main-color;
+  text-decoration: none;
+}
