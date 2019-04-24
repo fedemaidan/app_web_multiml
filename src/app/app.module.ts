@@ -20,6 +20,7 @@ import { NavegadorComponent } from './components/navegador/navegador.component';
 import { RegistracionComponent } from './pages/registracion/registracion.component';
 import { MensajeComponent } from './components/mensaje/mensaje.component';
 import { RecuperarContrasenaComponent } from './pages/recuperar-contrasena/recuperar-contrasena.component';
+import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 
 const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -36,7 +37,7 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RegistracionComponent,
     MensajeComponent,
     RecuperarContrasenaComponent,
-
+    PreguntasFrecuentesComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +70,10 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       {
         path: 'recuperar_contrasena',
         component: RecuperarContrasenaComponent
+      },
+      {
+        path: 'faq',
+        component: PreguntasFrecuentesComponent
       }
     ], {
       useHash: true
